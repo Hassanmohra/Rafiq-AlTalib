@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6941c6">
+<meta name="description" content="رفيق الطالب - مساعدك الدراسي الذكي لطلبة التوجيهي في غزة">
+<title>رفيق الطالب | مساعدك الدراسي الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#6941c6;
+  --primary-dark:#5030a0;
+  --primary-light:#f0ebff;
+  --ink:#202036;
+  --muted:#77788c;
+  --line:#eceaf3;
+  --bg:#f8f8fc;
+  --white:#fff;
+  --green:#138a62;
+  --radius:18px;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:"Cairo",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+button,input,textarea,select {font:inherit}
+button {cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible {
+  outline:3px solid #b8a3ff;
+  outline-offset:2px;
+}
+a {color:inherit;text-decoration:none}
+.app {min-height:100vh}
+.topbar {
+  height:72px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.brand {display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px}
+.logo {
+  display:grid;place-items:center;width:43px;height:43px;
+  border-radius:14px;background:var(--primary);color:white;font-size:24px;
+}
+.brand small {display:block;font-size:10px;color:var(--muted);font-weight:500}
+.top-actions {display:flex;gap:10px;align-items:center}
+.btn {
+  border:0;border-radius:12px;padding:11px 17px;
+  font-weight:700;transition:.2s;
+}
+.btn-primary {background:var(--primary);color:#fff}
+.btn-primary:hover {background:var(--primary-dark)}
+.btn-light {background:var(--primary-light);color:var(--primary)}
+.btn-outline {background:#fff;border:1px solid var(--line);color:var(--ink)}
+.container {max-width:1180px;margin:auto;padding:28px 22px 60px}
+.hero {
+  border-radius:24px;padding:32px;color:white;
+  background:linear-gradient(120deg,#5030a0,#7954dc 65%,#9275ed);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  overflow:hidden;position:relative;
+}
+.hero h1 {font-size:clamp(25px,4vw,36px);margin:0 0 12px;line-height:1.5}
+.hero p {margin:0;line-height:2;color:#f0eaff;max-width:590px}
+.hero .btn {margin-top:20px;background:#fff;color:var(--primary)}
+.hero-art {font-size:100px;opacity:.9;padding:0 15px}
+.eyebrow {font-size:12px;font-weight:800;letter-spacing:.2px;color:var(--primary)}
+.section-head {
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin:31px 0 16px;
+}
+.section-head h2 {font-size:21px;margin:0}
+.section-head p {margin:4px 0 0;color:var(--muted);font-size:13px}
+.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.service {
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:21px;display:flex;flex-direction:column;min-height:220px;
+  transition:transform .2s,border-color .2s;
+}
+.service:hover {transform:translateY(-3px);border-color:#c9b8ff}
+.service-icon {
+  width:48px;height:48px;border-radius:15px;
+  background:var(--primary-light);display:grid;place-items:center;
+  font-size:25px;margin-bottom:15px;
+}
+.service h3 {font-size:17px;margin:0 0 8px}
+.service p {font-size:13px;color:var(--muted);line-height:1.9;margin:0 0 18px}
+.service button {margin-top:auto;align-self:flex-start}
+.notice {
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:17px;display:flex;gap:13px;align-items:flex-start;margin-top:24px;
+}
+.notice-icon {font-size:24px}
+.notice p {font-size:13px;color:var(--muted);line-height:1.9;margin:4px 0 0}
+.panel {
+  margin-top:25px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:23px;
+}
+.panel h2 {font-size:19px;margin:0 0 7px}
+.panel>p {font-size:13px;color:var(--muted);line-height:1.9}
+.field {margin:17px 0}
+.field label {display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.field input,.field textarea,.field select {
+  width:100%;border:1px solid #dedce8;border-radius:12px;
+  padding:13px;background:#fff;color:var(--ink);
+}
+.field textarea {min-height:130px;resize:vertical;line-height:1.9}
+.result {
+  white-space:pre-wrap;background:#faf9ff;border:1px solid #e6defc;
+  border-radius:13px;padding:16px;line-height:2;font-size:14px;margin-top:15px;
+}
+.hidden {display:none!important}
+.file-drop {
+  border:2px dashed #d7cafa;border-radius:15px;padding:26px 15px;
+  text-align:center;background:#fcfbff;cursor:pointer;
+}
+.file-drop strong {display:block;margin:9px 0}
+.file-drop p {color:var(--muted);font-size:12px;margin:4px}
+.footer {text-align:center;color:var(--muted);font-size:12px;padding:25px}
+.pill {
+  display:inline-block;padding:5px 10px;background:#f0ebff;
+  color:var(--primary);border-radius:30px;font-size:11px;font-weight:700;
+}
+.toast {
+  position:fixed;bottom:20px;left:20px;right:20px;margin:auto;
+  max-width:420px;padding:15px;background:#25213a;color:white;
+  border-radius:13px;z-index:20;box-shadow:0 8px 30px #0002;
+}
+@media(max-width:800px) {
+  .grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-art {font-size:65px}
+}
+@media(max-width:540px) {
+  .topbar {height:64px;padding:0 15px}
+  .brand {font-size:17px}
+  .logo {width:38px;height:38px}
+  .top-actions .btn {padding:8px 10px;font-size:12px}
+  .container {padding:18px 14px 40px}
+  .hero {padding:23px 20px}
+  .hero-art {display:none}
+  .grid {grid-template-columns:1fr}
+  .service {min-height:0}
+  .section-head h2 {font-size:18px}
+  .panel {padding:17px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <a class="brand" href="#" aria-label="رفيق الطالب - الرئيسية">
+    <span class="logo">ر</span>
+    <span>رفيق الطالب<small>مساعدك الدراسي الذكي</small></span>
+  </a>
+  <div class="top-actions">
+    <span class="pill">نسخة تجريبية</span>
+    <button class="btn btn-outline" id="homeBtn">الرئيسية</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <h1>دراستك أسهل مع رفيق الطالب ✨</h1>
+      <p>لخّص محاضراتك، نظّم ملاحظاتك، وحوّل تسجيلاتك إلى نصوص. أدوات دراسية مصممة لمساعدتك في رحلة التوجيهي.</p>
+      <button class="btn" id="startBtn">اكتشف الخدمات ←</button>
+    </div>
+    <div class="hero-art" aria-hidden="true">📚</div>
+  </section>
+
+  <div class="section-head" id="services">
+    <div>
+      <h2>ماذا تريد أن تنجز اليوم؟</h2>
+      <p>اختر الأداة التي تحتاجها للبدء.</p>
+    </div>
+  </div>
+
+  <section class="grid">
+    <article class="service">
+      <div class="service-icon">📝</div>
+      <h3>تلخيص المحاضرات</h3>
+      <p>أدخل نص المحاضرة أو ملاحظاتك للحصول على معاينة ملخص أولية.</p>
+      <button class="btn btn-light" data-tool="summary">ابدأ التلخيص ←</button>
+    </article>
+    <article class="service">
+      <div class="service-icon">📚</div>
+      <h3>الملازم الدراسية</h3>
+      <p>ابحث في مكتبتك الدراسية أو اطلب إعداد مذكرة تعليمية لمادة محددة.</p>
+      <button class="btn btn-light" data-tool="notes">استكشف الملازم ←</button>
+    </article>
+    <article class="service">
+      <div class="service-icon">🎙️</div>
+      <h3>تحويل الصوت إلى نص</h3>
+      <p>جهّز تسجيلًا صوتيًا لاستخراج الكلام منه بعد ربط خدمة التفريغ.</p>
+      <button class="btn btn-light" data-tool="audio">اختر تسجيلًا ←</button>
+    </article>
+    <article class="service">
+      <div class="service-icon">🎬</div>
+      <h3>تحويل الفيديو إلى نص</h3>
+      <p>حوّل شرح الفيديو إلى نص مكتوب ثم استخدم النص للمراجعة والتلخيص.</p>
+      <button class="btn btn-light" data-tool="video">اختر فيديو ←</button>
+    </article>
+    <article class="service">
+      <div class="service-icon">🤖</div>
+      <h3>المساعد الدراسي الذكي</h3>
+      <p>اكتب سؤالك الدراسي وحدد المادة التي تريد المساعدة فيها.</p>
+      <button class="btn btn-light" data-tool="assistant">اسأل رفيقك ←</button>
+    </article>
+    <article class="service">
+      <div class="service-icon">🧠</div>
+      <h3>إنشاء اختبار</h3>
+      <p>حضّر موضوعًا دراسيًا لإنشاء اختبارات وأسئلة مراجعة في المرحلة القادمة.</p>
+      <button class="btn btn-light" data-tool="quiz">جهّز اختبارًا ←</button>
+    </article>
+  </section>
+
+  <section class="panel hidden" id="workspace" aria-live="polite">
+    <span class="eyebrow">مساحة العمل</span>
+    <h2 id="workTitle">أداة الدراسة</h2>
+    <p id="workDescription"></p>
+
+    <div id="textArea" class="hidden">
+      <div class="field">
+        <label for="subject">المادة الدراسية</label>
+        <select id="subject">
+          <option>اللغة العربية</option>
+          <option>اللغة الإنجليزية</option>
+          <option>الرياضيات</option>
+          <option>الفيزياء</option>
+          <option>الكيمياء</option>
+          <option>الأحياء</option>
+          <option>التاريخ</option>
+          <option>الجغرافيا</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="studentText">النص أو السؤال الدراسي</label>
+        <textarea id="studentText" placeholder="اكتب النص هنا..."></textarea>
+      </div>
+      <button class="btn btn-primary" id="previewBtn">إنشاء معاينة للنص</button>
+      <div id="textResult" class="result hidden"></div>
+      <p>هذه معاينة محلية بسيطة وليست تلخيصًا بالذكاء الاصطناعي. سنربط الخدمة الذكية في المرحلة التالية.</p>
+    </div>
+
+    <div id="fileArea" class="hidden">
+      <div class="field">
+        <label for="fileSubject">المادة الدراسية</label>
+        <select id="fileSubject">
+          <option>الرياضيات</option><option>الفيزياء</option>
+          <option>الكيمياء</option><option>الأحياء</option>
+          <option>اللغة العربية</option><option>اللغة الإنجليزية</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <label class="file-drop" for="fileInput">
+        <span style="font-size:30px">📎</span>
+        <strong>اضغط لاختيار ملف من جهازك</strong>
+        <p>PDF، DOCX، TXT، صور، صوت أو فيديو حسب الأداة</p>
+        <p id="fileName">لم يتم اختيار ملف</p>
+      </label>
+      <input id="fileInput" type="file" class="hidden"
+        accept=".pdf,.docx,.txt,.png,.jpg,.jpeg,.webp,.mp3,.wav,.m4a,.mp4,.webm">
+      <button class="btn btn-primary" id="fileBtn" style="margin-top:15px">تجهيز الملف</button>
+      <div id="fileResult" class="result hidden"></div>
+      <p>النسخة الحالية لا ترفع الملفات إلى خادم ولا تعالج محتواها. هذه الخطوة تتحقق محليًا من اختيار الملف فقط.</p>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="notice-icon">🔒</div>
+    <div>
+      <strong>خصوصيتك مهمة</strong>
+      <p>لا ترفع ملفات شخصية أو حساسة في هذه النسخة التجريبية. ستتم إضافة الحسابات والتخزين الآمن وربط الخدمات قبل إطلاق الاستخدام الفعلي.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="subscription">
+    <span class="eyebrow">قريبًا</span>
+    <h2>اشتراك الموسم الدراسي</h2>
+    <p>خطة واحدة تمنح الطالب إمكانية الوصول إلى الأدوات المدفوعة ضمن حدود استخدام واضحة.</p>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <strong style="font-size:30px;color:var(--primary)">50 شيكل</strong>
+      <span class="pill">للموسم الدراسي كاملًا</span>
+    </div>
+    <p>الدفع الإلكتروني غير مفعّل بعد. لن نعرض زر دفع قبل ربط بوابة معتمدة والتحقق من نتيجة الدفع من جهة الخادم.</p>
+    <button class="btn btn-outline" id="paymentInfoBtn">معلومات الاشتراك</button>
+  </section>
+</main>
+
+<footer class="footer">
+  رفيق الطالب © <span id="year"></span> — خطوة بخطوة نحو تعلم أفضل
+</footer>
+<div id="toast" class="toast hidden" role="status"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+  let activeTool = "";
+  let selectedFile = null;
+  let toastTimer;
+
+  const tools = {
+    summary: {
+      title: "تلخيص المحاضرات",
+      description: "أدخل نصًا دراسيًا لمعاينة طريقة عرض المحتوى قبل ربط الذكاء الاصطناعي.",
+      mode: "text"
+    },
+    assistant: {
+      title: "المساعد الدراسي الذكي",
+      description: "اكتب سؤالًا دراسيًا. الإجابة الذكية الفعلية ستتوفر بعد ربط الخادم.",
+      mode: "text"
+    },
+    quiz: {
+      title: "إنشاء اختبار",
+      description: "أدخل موضوعًا أو نصًا دراسيًا لتجهيزه للمرحلة القادمة.",
+      mode: "text"
+    },
+    notes: {
+      title: "الملازم الدراسية",
+      description: "اختر المادة. سنربط هذه الأداة بمكتبة ملفات مرخصة وميزة إنشاء مذكرات أصلية.",
+      mode: "file"
+    },
+    audio: {
+      title: "تحويل الصوت إلى نص",
+      description: "اختر ملفًا صوتيًا لتجهيز واجهة العمل. التفريغ الحقيقي يحتاج إلى خدمة خلفية.",
+      mode: "file"
+    },
+    video: {
+      title: "تحويل الفيديو إلى نص",
+      description: "اختر ملف فيديو. استخراج النص وتلخيصه سيعملان بعد ربط خدمة معالجة الفيديو.",
+      mode: "file"
+    }
+  };
+
+  function showToast(message) {
+    const el = $("toast");
+    el.textContent = message;
+    el.classList.remove("hidden");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.add("hidden"), 4000);
+  }
+
+  function openTool(name) {
+    const tool = tools[name];
+    if (!tool) return;
+
+    activeTool = name;
+    $("workspace").classList.remove("hidden");
+    $("workTitle").textContent = tool.title;
+    $("workDescription").textContent = tool.description;
+    $("textArea").classList.toggle("hidden", tool.mode !== "text");
+    $("fileArea").classList.toggle("hidden", tool.mode !== "file");
+    $("textResult").classList.add("hidden");
+    $("fileResult").classList.add("hidden");
+    $("studentText").value = "";
+    $("fileInput").value = "";
+    $("fileName").textContent = "لم يتم اختيار ملف";
+    selectedFile = null;
+    $("workspace").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+
+  document.querySelectorAll("[data-tool]").forEach(button => {
+    button.addEventListener("click", () => openTool(button.dataset.tool));
+  });
+
+  $("startBtn").addEventListener("click", () => {
+    $("services").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  $("homeBtn").addEventListener("click", () => {
+    $("workspace").classList.add("hidden");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  $("previewBtn").addEventListener("click", () => {
+    const text = $("studentText").value.trim();
+    const result = $("textResult");
+
+    if (text.length < 20) {
+      showToast("أدخل نصًا أطول قليلًا حتى نعرض معاينة مفيدة.");
+      return;
+    }
+
+    const sentences = text
+      .split(/[.!؟?\n]+/)
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    let output;
+    if (activeTool === "assistant") {
+      output = "تم استلام سؤالك بنجاح.\n\n"
+        + "المادة: " + $("subject").value
+        + "\n\nهذه نسخة واجهة تجريبية. لم يتم إرسال السؤال إلى نموذج ذكاء اصطناعي بعد.";
+    } else if (activeTool === "quiz") {
+      output = "موضوع المراجعة: " + $("subject").value
+        + "\n\nتم تجهيز النص للمرحلة القادمة.\n"
+        + "إنشاء الأسئلة وتصحيحها تلقائيًا يحتاج إلى ربط خدمة الذكاء الاصطناعي.";
+    } else {
+      const limit = Math.max(1, Math.ceil(sentences.length * 0.4));
+      output = "معاينة أولية غير ذكية — " + $("subject").value
+        + "\n\n" + sentences.slice(0, limit).join(". ") + "."
+        + "\n\nتنبيه: هذا اقتطاع بسيط من النص وليس تلخيصًا موثوقًا أو مولّدًا بالذكاء الاصطناعي.";
+    }
+
+    result.textContent = output;
+    result.classList.remove("hidden");
+  });
+
+  $("fileInput").addEventListener("change", event => {
+    selectedFile = event.target.files && event.target.files[0]
+      ? event.target.files[0] : null;
+
+    $("fileName").textContent = selectedFile
+      ? selectedFile.name + " — " + (selectedFile.size / (1024 * 1024)).toFixed(2) + " MB"
+      : "لم يتم اختيار ملف";
+    $("fileResult").classList.add("hidden");
+  });
+
+  $("fileBtn").addEventListener("click", () => {
+    if (!selectedFile) {
+      showToast("يرجى اختيار ملف أولًا.");
+      return;
+    }
+
+    const ext = selectedFile.name.split(".").pop().toLowerCase();
+    const allowed = ["pdf","docx","txt","png","jpg","jpeg","webp",
+                     "mp3","wav","m4a","mp4","webm"];
+
+    if (!allowed.includes(ext)) {
+      showToast("نوع الملف غير مدعوم في هذه النسخة.");
+      return;
+    }
+
+    if (selectedFile.size > 25 * 1024 * 1024) {
+      showToast("حجم الملف يتجاوز حد المعاينة البالغ 25 ميغابايت.");
+      return;
+    }
+
+    const result = $("fileResult");
+    result.textContent =
+      "تم اختيار الملف بنجاح.\n"
+      + "اسم الملف: " + selectedFile.name + "\n"
+      + "المادة: " + $("fileSubject").value + "\n\n"
+      + "لم يتم رفع الملف أو معالجته. سنضيف الرفع الآمن ومعالجة المحتوى "
+      + "بعد تجهيز الخادم والتحقق من صلاحيات المستخدم وحدود الاستخدام.";
+    result.classList.remove("hidden");
+  });
+
+  $("paymentInfoBtn").addEventListener("click", () => {
+    showToast("الاشتراك محدد مبدئيًا. سنفعّل الدفع بعد ربط بوابة معتمدة والتحقق من الدفع.");
+  });
+
+  $("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

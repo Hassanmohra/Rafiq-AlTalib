@@ -1,472 +1,2161 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#6941c6">
-<meta name="description" content="رفيق الطالب - مساعدك الدراسي الذكي لطلبة التوجيهي في غزة">
-<title>رفيق الطالب | مساعدك الدراسي الذكي</title>
+<meta name="description" content="رفيق الطالب - أهم الأسئلة والاختبارات للطلاب">
+
+<title>رفيق الطالب | أهم الأسئلة والاختبارات</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --primary:#6941c6;
-  --primary-dark:#5030a0;
-  --primary-light:#f0ebff;
-  --ink:#202036;
-  --muted:#77788c;
-  --line:#eceaf3;
-  --bg:#f8f8fc;
-  --white:#fff;
-  --green:#138a62;
-  --radius:18px;
+
+:root{
+    --primary:#6941c6;
+    --primary-dark:#5030a0;
+    --primary-light:#f0ebff;
+    --purple:#805ad5;
+    --green:#15956d;
+    --green-light:#eafaf4;
+    --orange:#f59e0b;
+    --orange-light:#fff7e6;
+    --red:#dc3545;
+    --red-light:#fff0f1;
+    --blue:#2563eb;
+    --blue-light:#eff6ff;
+    --ink:#202036;
+    --muted:#77788c;
+    --line:#ebe8f2;
+    --bg:#f7f7fb;
+    --white:#fff;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(41,32,75,.07);
 }
-* {box-sizing:border-box}
-body {
-  margin:0;
-  font-family:"Cairo",sans-serif;
-  color:var(--ink);
-  background:var(--bg);
+
+*{
+    box-sizing:border-box;
 }
-button,input,textarea,select {font:inherit}
-button {cursor:pointer}
-button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible {
-  outline:3px solid #b8a3ff;
-  outline-offset:2px;
+
+html{
+    scroll-behavior:smooth;
 }
-a {color:inherit;text-decoration:none}
-.app {min-height:100vh}
-.topbar {
-  height:72px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5%;
-  position:sticky;
-  top:0;
-  z-index:5;
+
+body{
+    margin:0;
+    font-family:"Cairo",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
 }
-.brand {display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px}
-.logo {
-  display:grid;place-items:center;width:43px;height:43px;
-  border-radius:14px;background:var(--primary);color:white;font-size:24px;
+
+button,
+input,
+select{
+    font:inherit;
 }
-.brand small {display:block;font-size:10px;color:var(--muted);font-weight:500}
-.top-actions {display:flex;gap:10px;align-items:center}
-.btn {
-  border:0;border-radius:12px;padding:11px 17px;
-  font-weight:700;transition:.2s;
+
+button{
+    cursor:pointer;
 }
-.btn-primary {background:var(--primary);color:#fff}
-.btn-primary:hover {background:var(--primary-dark)}
-.btn-light {background:var(--primary-light);color:var(--primary)}
-.btn-outline {background:#fff;border:1px solid var(--line);color:var(--ink)}
-.container {max-width:1180px;margin:auto;padding:28px 22px 60px}
-.hero {
-  border-radius:24px;padding:32px;color:white;
-  background:linear-gradient(120deg,#5030a0,#7954dc 65%,#9275ed);
-  display:flex;justify-content:space-between;align-items:center;gap:24px;
-  overflow:hidden;position:relative;
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
-.hero h1 {font-size:clamp(25px,4vw,36px);margin:0 0 12px;line-height:1.5}
-.hero p {margin:0;line-height:2;color:#f0eaff;max-width:590px}
-.hero .btn {margin-top:20px;background:#fff;color:var(--primary)}
-.hero-art {font-size:100px;opacity:.9;padding:0 15px}
-.eyebrow {font-size:12px;font-weight:800;letter-spacing:.2px;color:var(--primary)}
-.section-head {
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;margin:31px 0 16px;
+
+button:focus-visible,
+a:focus-visible{
+    outline:3px solid #c7b7ff;
+    outline-offset:3px;
 }
-.section-head h2 {font-size:21px;margin:0}
-.section-head p {margin:4px 0 0;color:var(--muted);font-size:13px}
-.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.service {
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  padding:21px;display:flex;flex-direction:column;min-height:220px;
-  transition:transform .2s,border-color .2s;
+
+/* HEADER */
+
+.topbar{
+    height:72px;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
 }
-.service:hover {transform:translateY(-3px);border-color:#c9b8ff}
-.service-icon {
-  width:48px;height:48px;border-radius:15px;
-  background:var(--primary-light);display:grid;place-items:center;
-  font-size:25px;margin-bottom:15px;
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-weight:800;
+    font-size:20px;
 }
-.service h3 {font-size:17px;margin:0 0 8px}
-.service p {font-size:13px;color:var(--muted);line-height:1.9;margin:0 0 18px}
-.service button {margin-top:auto;align-self:flex-start}
-.notice {
-  background:#fff;border:1px solid var(--line);border-radius:16px;
-  padding:17px;display:flex;gap:13px;align-items:flex-start;margin-top:24px;
+
+.logo{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#6941c6,#8d70e5);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    box-shadow:0 7px 18px rgba(105,65,198,.25);
 }
-.notice-icon {font-size:24px}
-.notice p {font-size:13px;color:var(--muted);line-height:1.9;margin:4px 0 0}
-.panel {
-  margin-top:25px;background:#fff;border:1px solid var(--line);
-  border-radius:var(--radius);padding:23px;
+
+.brand-text small{
+    display:block;
+    font-size:10px;
+    color:var(--muted);
+    font-weight:500;
 }
-.panel h2 {font-size:19px;margin:0 0 7px}
-.panel>p {font-size:13px;color:var(--muted);line-height:1.9}
-.field {margin:17px 0}
-.field label {display:block;font-size:13px;font-weight:700;margin-bottom:8px}
-.field input,.field textarea,.field select {
-  width:100%;border:1px solid #dedce8;border-radius:12px;
-  padding:13px;background:#fff;color:var(--ink);
+
+.top-actions{
+    display:flex;
+    gap:9px;
+    align-items:center;
 }
-.field textarea {min-height:130px;resize:vertical;line-height:1.9}
-.result {
-  white-space:pre-wrap;background:#faf9ff;border:1px solid #e6defc;
-  border-radius:13px;padding:16px;line-height:2;font-size:14px;margin-top:15px;
+
+.btn{
+    border:0;
+    border-radius:12px;
+    padding:11px 17px;
+    font-weight:700;
+    transition:.2s;
 }
-.hidden {display:none!important}
-.file-drop {
-  border:2px dashed #d7cafa;border-radius:15px;padding:26px 15px;
-  text-align:center;background:#fcfbff;cursor:pointer;
+
+.btn:hover{
+    transform:translateY(-1px);
 }
-.file-drop strong {display:block;margin:9px 0}
-.file-drop p {color:var(--muted);font-size:12px;margin:4px}
-.footer {text-align:center;color:var(--muted);font-size:12px;padding:25px}
-.pill {
-  display:inline-block;padding:5px 10px;background:#f0ebff;
-  color:var(--primary);border-radius:30px;font-size:11px;font-weight:700;
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
 }
-.toast {
-  position:fixed;bottom:20px;left:20px;right:20px;margin:auto;
-  max-width:420px;padding:15px;background:#25213a;color:white;
-  border-radius:13px;z-index:20;box-shadow:0 8px 30px #0002;
+
+.btn-primary:hover{
+    background:var(--primary-dark);
 }
-@media(max-width:800px) {
-  .grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero-art {font-size:65px}
+
+.btn-light{
+    background:var(--primary-light);
+    color:var(--primary);
 }
-@media(max-width:540px) {
-  .topbar {height:64px;padding:0 15px}
-  .brand {font-size:17px}
-  .logo {width:38px;height:38px}
-  .top-actions .btn {padding:8px 10px;font-size:12px}
-  .container {padding:18px 14px 40px}
-  .hero {padding:23px 20px}
-  .hero-art {display:none}
-  .grid {grid-template-columns:1fr}
-  .service {min-height:0}
-  .section-head h2 {font-size:18px}
-  .panel {padding:17px}
+
+.btn-outline{
+    background:#fff;
+    border:1px solid var(--line);
+    color:var(--ink);
 }
+
+/* MAIN */
+
+.container{
+    max-width:1180px;
+    margin:auto;
+    padding:28px 22px 70px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(120deg,#5030a0,#6941c6 58%,#8d70e5);
+    border-radius:26px;
+    padding:38px;
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 15px 35px rgba(80,48,160,.18);
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    left:-80px;
+    top:-100px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+}
+
+.hero-badge{
+    display:inline-flex;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.18);
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:13px;
+}
+
+.hero h1{
+    margin:0 0 12px;
+    font-size:clamp(27px,4vw,40px);
+    line-height:1.45;
+}
+
+.hero p{
+    margin:0;
+    color:#eee9ff;
+    line-height:2;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+}
+
+.hero .btn-white{
+    background:#fff;
+    color:var(--primary);
+}
+
+.hero-art{
+    font-size:105px;
+    position:relative;
+    z-index:1;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:17px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.stat-icon{
+    font-size:25px;
+}
+
+.stat strong{
+    display:block;
+    font-size:22px;
+    margin-top:3px;
+}
+
+.stat span{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* SECTION */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin:35px 0 17px;
+}
+
+.section-head h2{
+    margin:0;
+    font-size:22px;
+}
+
+.section-head p{
+    margin:4px 0 0;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SUBJECTS */
+
+.subject-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.subject{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:20px;
+    cursor:pointer;
+    transition:.2s;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.subject:hover{
+    transform:translateY(-4px);
+    border-color:#c9b8ff;
+}
+
+.subject-icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    background:var(--primary-light);
+    margin-bottom:14px;
+}
+
+.subject h3{
+    margin:0 0 5px;
+    font-size:17px;
+}
+
+.subject p{
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.subject-arrow{
+    margin-top:15px;
+    color:var(--primary);
+    font-weight:800;
+    font-size:13px;
+}
+
+/* QUICK CARDS */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.quick-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quick-card:hover{
+    transform:translateY(-3px);
+}
+
+.quick-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.quick-card h3{
+    margin:0 0 5px;
+}
+
+.quick-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* CONTENT */
+
+.panel{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* QUESTIONS */
+
+.question-card{
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:20px;
+    margin-bottom:14px;
+    background:#fff;
+}
+
+.question-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:flex-start;
+}
+
+.question-number{
+    background:var(--primary-light);
+    color:var(--primary);
+    padding:5px 10px;
+    border-radius:9px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.question-text{
+    font-size:16px;
+    font-weight:700;
+    line-height:1.9;
+    margin:14px 0;
+}
+
+.answer-box{
+    background:var(--green-light);
+    border:1px solid #ccefe1;
+    border-radius:13px;
+    padding:13px 15px;
+    color:#116b50;
+    line-height:1.9;
+}
+
+.answer-label{
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:4px;
+}
+
+/* IMPORTANT */
+
+.important{
+    border-right:5px solid var(--orange);
+}
+
+.badge-important{
+    background:var(--orange-light);
+    color:#a96700;
+    border-radius:20px;
+    padding:5px 9px;
+    font-size:11px;
+    font-weight:800;
+}
+
+/* CHOICE */
+
+.choice-option{
+    width:100%;
+    text-align:right;
+    border:1px solid var(--line);
+    background:#fff;
+    padding:13px 15px;
+    border-radius:12px;
+    margin-top:9px;
+    transition:.2s;
+}
+
+.choice-option:hover{
+    background:var(--primary-light);
+    border-color:#c9b8ff;
+}
+
+.choice-option.correct{
+    background:var(--green-light);
+    border-color:#83d8bb;
+    color:#087254;
+}
+
+.choice-option.wrong{
+    background:var(--red-light);
+    border-color:#f1a6ae;
+    color:#b42333;
+}
+
+/* TEST */
+
+.test-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.test-info{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.pill{
+    background:#f4f2f8;
+    color:#5d5870;
+    padding:7px 12px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.progress{
+    height:8px;
+    background:#eeeaf5;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,#6941c6,#967be6);
+    width:0%;
+    transition:.3s;
+}
+
+.test-question{
+    font-size:20px;
+    line-height:1.8;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.test-option{
+    display:block;
+    width:100%;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:14px;
+    padding:15px;
+    margin:10px 0;
+    text-align:right;
+    transition:.2s;
+}
+
+.test-option:hover{
+    border-color:#b8a5ec;
+    background:#faf8ff;
+}
+
+.test-option.selected{
+    background:var(--primary-light);
+    border-color:var(--primary);
+    color:var(--primary);
+    font-weight:700;
+}
+
+.test-actions{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+/* RESULT */
+
+.result{
+    text-align:center;
+    padding:35px 20px;
+}
+
+.result-circle{
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    border:10px solid #e9e0ff;
+    display:grid;
+    place-items:center;
+    margin:0 auto 20px;
+    color:var(--primary);
+}
+
+.result-circle strong{
+    font-size:32px;
+}
+
+.result h2{
+    margin:0 0 8px;
+}
+
+.result p{
+    color:var(--muted);
+}
+
+/* SUBSCRIPTION */
+
+.subscription{
+    margin-top:30px;
+    background:linear-gradient(120deg,#fff,#f7f2ff);
+    border:1px solid #ddd2f6;
+    border-radius:22px;
+    padding:27px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.subscription h2{
+    margin:0 0 6px;
+}
+
+.subscription p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.price{
+    font-size:30px;
+    font-weight:800;
+    color:var(--primary);
+    white-space:nowrap;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(20,16,35,.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:500;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(500px,100%);
+    background:#fff;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 30px 80px rgba(0,0,0,.2);
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.modal-head h2{
+    margin:0;
+}
+
+.close{
+    border:0;
+    background:#f4f2f7;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:18px;
+}
+
+.input{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:13px;
+    margin:10px 0;
+    outline:none;
+}
+
+.input:focus{
+    border-color:var(--primary);
+}
+
+.subscribe-info{
+    background:var(--primary-light);
+    color:#56418f;
+    border-radius:14px;
+    padding:13px;
+    line-height:1.8;
+    font-size:13px;
+    margin:12px 0;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    background:#fff;
+    padding:25px;
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .subject-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-art{
+        font-size:70px;
+    }
+}
+
+@media(max-width:650px){
+
+    .topbar{
+        padding:0 15px;
+    }
+
+    .top-actions .btn-outline{
+        display:none;
+    }
+
+    .container{
+        padding:18px 13px 50px;
+    }
+
+    .hero{
+        padding:25px 20px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .subject-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .subject{
+        padding:15px;
+    }
+
+    .subscription{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .section-head{
+        align-items:flex-start;
+    }
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <header class="topbar">
-  <a class="brand" href="#" aria-label="رفيق الطالب - الرئيسية">
-    <span class="logo">ر</span>
-    <span>رفيق الطالب<small>مساعدك الدراسي الذكي</small></span>
-  </a>
-  <div class="top-actions">
-    <span class="pill">نسخة تجريبية</span>
-    <button class="btn btn-outline" id="homeBtn">الرئيسية</button>
-  </div>
+
+    <a href="#" class="brand" onclick="goHome();return false;">
+        <div class="logo">🎓</div>
+        <div class="brand-text">
+            رفيق الطالب
+            <small>أسئلة واختبارات</small>
+        </div>
+    </a>
+
+    <div class="top-actions">
+        <button class="btn btn-outline" onclick="openSubscribe()">
+            ⭐ الاشتراك
+        </button>
+
+        <button class="btn btn-primary" onclick="showTests()">
+            📝 اختبر نفسك
+        </button>
+    </div>
+
 </header>
 
+
 <main class="container">
-  <section class="hero">
-    <div>
-      <h1>دراستك أسهل مع رفيق الطالب ✨</h1>
-      <p>لخّص محاضراتك، نظّم ملاحظاتك، وحوّل تسجيلاتك إلى نصوص. أدوات دراسية مصممة لمساعدتك في رحلة التوجيهي.</p>
-      <button class="btn" id="startBtn">اكتشف الخدمات ←</button>
-    </div>
-    <div class="hero-art" aria-hidden="true">📚</div>
-  </section>
 
-  <div class="section-head" id="services">
-    <div>
-      <h2>ماذا تريد أن تنجز اليوم؟</h2>
-      <p>اختر الأداة التي تحتاجها للبدء.</p>
-    </div>
-  </div>
+<!-- HOME -->
 
-  <section class="grid">
-    <article class="service">
-      <div class="service-icon">📝</div>
-      <h3>تلخيص المحاضرات</h3>
-      <p>أدخل نص المحاضرة أو ملاحظاتك للحصول على معاينة ملخص أولية.</p>
-      <button class="btn btn-light" data-tool="summary">ابدأ التلخيص ←</button>
-    </article>
-    <article class="service">
-      <div class="service-icon">📚</div>
-      <h3>الملازم الدراسية</h3>
-      <p>ابحث في مكتبتك الدراسية أو اطلب إعداد مذكرة تعليمية لمادة محددة.</p>
-      <button class="btn btn-light" data-tool="notes">استكشف الملازم ←</button>
-    </article>
-    <article class="service">
-      <div class="service-icon">🎙️</div>
-      <h3>تحويل الصوت إلى نص</h3>
-      <p>جهّز تسجيلًا صوتيًا لاستخراج الكلام منه بعد ربط خدمة التفريغ.</p>
-      <button class="btn btn-light" data-tool="audio">اختر تسجيلًا ←</button>
-    </article>
-    <article class="service">
-      <div class="service-icon">🎬</div>
-      <h3>تحويل الفيديو إلى نص</h3>
-      <p>حوّل شرح الفيديو إلى نص مكتوب ثم استخدم النص للمراجعة والتلخيص.</p>
-      <button class="btn btn-light" data-tool="video">اختر فيديو ←</button>
-    </article>
-    <article class="service">
-      <div class="service-icon">🤖</div>
-      <h3>المساعد الدراسي الذكي</h3>
-      <p>اكتب سؤالك الدراسي وحدد المادة التي تريد المساعدة فيها.</p>
-      <button class="btn btn-light" data-tool="assistant">اسأل رفيقك ←</button>
-    </article>
-    <article class="service">
-      <div class="service-icon">🧠</div>
-      <h3>إنشاء اختبار</h3>
-      <p>حضّر موضوعًا دراسيًا لإنشاء اختبارات وأسئلة مراجعة في المرحلة القادمة.</p>
-      <button class="btn btn-light" data-tool="quiz">جهّز اختبارًا ←</button>
-    </article>
-  </section>
+<section id="home">
 
-  <section class="panel hidden" id="workspace" aria-live="polite">
-    <span class="eyebrow">مساحة العمل</span>
-    <h2 id="workTitle">أداة الدراسة</h2>
-    <p id="workDescription"></p>
+    <div class="hero">
 
-    <div id="textArea" class="hidden">
-      <div class="field">
-        <label for="subject">المادة الدراسية</label>
-        <select id="subject">
-          <option>اللغة العربية</option>
-          <option>اللغة الإنجليزية</option>
-          <option>الرياضيات</option>
-          <option>الفيزياء</option>
-          <option>الكيمياء</option>
-          <option>الأحياء</option>
-          <option>التاريخ</option>
-          <option>الجغرافيا</option>
-          <option>أخرى</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="studentText">النص أو السؤال الدراسي</label>
-        <textarea id="studentText" placeholder="اكتب النص هنا..."></textarea>
-      </div>
-      <button class="btn btn-primary" id="previewBtn">إنشاء معاينة للنص</button>
-      <div id="textResult" class="result hidden"></div>
-      <p>هذه معاينة محلية بسيطة وليست تلخيصًا بالذكاء الاصطناعي. سنربط الخدمة الذكية في المرحلة التالية.</p>
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🎯 مراجعة مركزة للامتحان
+            </div>
+
+            <h1>
+                أهم الأسئلة التي تحتاجها للامتحان
+            </h1>
+
+            <p>
+                لا تضيع وقتك بين الشروحات الطويلة.
+                اختر المادة، راجع أهم الأسئلة، تدرب على اختر الإجابة،
+                ثم اختبر نفسك واحصل على نتيجتك فورًا.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn btn-white" onclick="scrollToSubjects()">
+                    📚 اختر مادتك
+                </button>
+
+                <button class="btn btn-light" onclick="showTests()">
+                    📝 ابدأ اختبار
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-art">
+            📚
+        </div>
+
     </div>
 
-    <div id="fileArea" class="hidden">
-      <div class="field">
-        <label for="fileSubject">المادة الدراسية</label>
-        <select id="fileSubject">
-          <option>الرياضيات</option><option>الفيزياء</option>
-          <option>الكيمياء</option><option>الأحياء</option>
-          <option>اللغة العربية</option><option>اللغة الإنجليزية</option>
-          <option>أخرى</option>
-        </select>
-      </div>
-      <label class="file-drop" for="fileInput">
-        <span style="font-size:30px">📎</span>
-        <strong>اضغط لاختيار ملف من جهازك</strong>
-        <p>PDF، DOCX، TXT، صور، صوت أو فيديو حسب الأداة</p>
-        <p id="fileName">لم يتم اختيار ملف</p>
-      </label>
-      <input id="fileInput" type="file" class="hidden"
-        accept=".pdf,.docx,.txt,.png,.jpg,.jpeg,.webp,.mp3,.wav,.m4a,.mp4,.webm">
-      <button class="btn btn-primary" id="fileBtn" style="margin-top:15px">تجهيز الملف</button>
-      <div id="fileResult" class="result hidden"></div>
-      <p>النسخة الحالية لا ترفع الملفات إلى خادم ولا تعالج محتواها. هذه الخطوة تتحقق محليًا من اختيار الملف فقط.</p>
-    </div>
-  </section>
 
-  <section class="notice">
-    <div class="notice-icon">🔒</div>
-    <div>
-      <strong>خصوصيتك مهمة</strong>
-      <p>لا ترفع ملفات شخصية أو حساسة في هذه النسخة التجريبية. ستتم إضافة الحسابات والتخزين الآمن وربط الخدمات قبل إطلاق الاستخدام الفعلي.</p>
-    </div>
-  </section>
+    <div class="stats">
 
-  <section class="panel" id="subscription">
-    <span class="eyebrow">قريبًا</span>
-    <h2>اشتراك الموسم الدراسي</h2>
-    <p>خطة واحدة تمنح الطالب إمكانية الوصول إلى الأدوات المدفوعة ضمن حدود استخدام واضحة.</p>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <strong style="font-size:30px;color:var(--primary)">50 شيكل</strong>
-      <span class="pill">للموسم الدراسي كاملًا</span>
+        <div class="stat">
+            <div class="stat-icon">⭐</div>
+            <strong>أهم</strong>
+            <span>الأسئلة المختارة</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🔥</div>
+            <strong>مهم</strong>
+            <span>أسئلة مركزة</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">📝</div>
+            <strong>اختبارات</strong>
+            <span>تدرب واختبر نفسك</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">📊</div>
+            <strong>نتيجتك</strong>
+            <span>اعرف مستواك</span>
+        </div>
+
     </div>
-    <p>الدفع الإلكتروني غير مفعّل بعد. لن نعرض زر دفع قبل ربط بوابة معتمدة والتحقق من نتيجة الدفع من جهة الخادم.</p>
-    <button class="btn btn-outline" id="paymentInfoBtn">معلومات الاشتراك</button>
-  </section>
+
+
+    <div id="subjectsSection">
+
+        <div class="section-head">
+
+            <div>
+                <h2>📚 اختر المادة</h2>
+                <p>ابدأ بالمادة التي تريد مراجعتها</p>
+            </div>
+
+        </div>
+
+
+        <div class="subject-grid">
+
+            <div class="subject" onclick="openSubject('arabic')">
+
+                <div class="subject-icon">📖</div>
+
+                <h3>اللغة العربية</h3>
+
+                <p>أهم الأسئلة والتدريبات</p>
+
+                <div class="subject-arrow">
+                    دخول للمادة ←
+                </div>
+
+            </div>
+
+
+            <div class="subject" onclick="openSubject('math')">
+
+                <div class="subject-icon">📐</div>
+
+                <h3>الرياضيات</h3>
+
+                <p>أسئلة وتمارين واختبارات</p>
+
+                <div class="subject-arrow">
+                    دخول للمادة ←
+                </div>
+
+            </div>
+
+
+            <div class="subject" onclick="openSubject('english')">
+
+                <div class="subject-icon">🔤</div>
+
+                <h3>اللغة الإنجليزية</h3>
+
+                <p>أسئلة اختر ومراجعة</p>
+
+                <div class="subject-arrow">
+                    دخول للمادة ←
+                </div>
+
+            </div>
+
+
+            <div class="subject" onclick="openSubject('science')">
+
+                <div class="subject-icon">🔬</div>
+
+                <h3>العلوم</h3>
+
+                <p>أهم المفاهيم والأسئلة</p>
+
+                <div class="subject-arrow">
+                    دخول للمادة ←
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-head">
+
+        <div>
+            <h2>🎯 ماذا تريد أن تفعل؟</h2>
+            <p>اختر طريقة المراجعة المناسبة لك</p>
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <div class="quick-card" onclick="showImportant()">
+
+            <div class="quick-icon">⭐</div>
+
+            <h3>أهم الأسئلة</h3>
+
+            <p>
+                مجموعة من الأسئلة الأساسية التي يجب على الطالب مراجعتها.
+            </p>
+
+        </div>
+
+
+        <div class="quick-card" onclick="showChoices()">
+
+            <div class="quick-icon">✅</div>
+
+            <h3>اختر الإجابة الصحيحة</h3>
+
+            <p>
+                تدرب على أسئلة الاختيار من متعدد وشاهد الإجابة بعد اختيارك.
+            </p>
+
+        </div>
+
+
+        <div class="quick-card" onclick="showTests()">
+
+            <div class="quick-icon">📝</div>
+
+            <h3>اختبر نفسك</h3>
+
+            <p>
+                اختبارات قصيرة لمعرفة مستواك وقياس تقدمك.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="subscription">
+
+        <div>
+
+            <h2>⭐ افتح كامل المحتوى</h2>
+
+            <p>
+                الاشتراك يتيح لك الوصول إلى أهم الأسئلة،
+                الأسئلة المهمة، الاختبارات والمراجعات.
+            </p>
+
+        </div>
+
+        <div>
+            <div class="price">50 شيكل</div>
+
+            <button class="btn btn-primary" onclick="openSubscribe()">
+                اشترك الآن
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SUBJECT -->
+
+<section id="subjectPage" class="hidden">
+
+    <button class="btn btn-light" onclick="goHome()">
+        ← العودة للرئيسية
+    </button>
+
+    <div class="section-head">
+
+        <div>
+            <h2 id="subjectTitle">المادة</h2>
+            <p id="subjectDescription"></p>
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+        <div class="quick-card" onclick="showSubjectQuestions()">
+
+            <div class="quick-icon">⭐</div>
+
+            <h3>أهم الأسئلة</h3>
+
+            <p>
+                أهم الأسئلة التي يجب مراجعتها.
+            </p>
+
+        </div>
+
+
+        <div class="quick-card" onclick="showSubjectChoices()">
+
+            <div class="quick-icon">✅</div>
+
+            <h3>اختر الإجابة</h3>
+
+            <p>
+                تدرب على أسئلة الاختيار من متعدد.
+            </p>
+
+        </div>
+
+
+        <div class="quick-card" onclick="startQuiz(currentSubject)">
+
+            <div class="quick-icon">📝</div>
+
+            <h3>اختبار المادة</h3>
+
+            <p>
+                ابدأ اختبارًا واحصل على نتيجتك.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="subjectContent" style="margin-top:25px;"></div>
+
+</section>
+
+
+<!-- TESTS -->
+
+<section id="testsPage" class="hidden">
+
+    <button class="btn btn-light" onclick="goHome()">
+        ← العودة للرئيسية
+    </button>
+
+    <div class="section-head">
+
+        <div>
+            <h2>📝 اختبر نفسك</h2>
+            <p>اختر المادة وابدأ الاختبار</p>
+        </div>
+
+    </div>
+
+
+    <div class="subject-grid">
+
+        <div class="subject" onclick="startQuiz('arabic')">
+            <div class="subject-icon">📖</div>
+            <h3>اختبار اللغة العربية</h3>
+            <p>أسئلة متنوعة</p>
+            <div class="subject-arrow">ابدأ الاختبار ←</div>
+        </div>
+
+        <div class="subject" onclick="startQuiz('math')">
+            <div class="subject-icon">📐</div>
+            <h3>اختبار الرياضيات</h3>
+            <p>أسئلة متنوعة</p>
+            <div class="subject-arrow">ابدأ الاختبار ←</div>
+        </div>
+
+        <div class="subject" onclick="startQuiz('english')">
+            <div class="subject-icon">🔤</div>
+            <h3>اختبار الإنجليزية</h3>
+            <p>أسئلة متنوعة</p>
+            <div class="subject-arrow">ابدأ الاختبار ←</div>
+        </div>
+
+        <div class="subject" onclick="startQuiz('science')">
+            <div class="subject-icon">🔬</div>
+            <h3>اختبار العلوم</h3>
+            <p>أسئلة متنوعة</p>
+            <div class="subject-arrow">ابدأ الاختبار ←</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quizPage" class="hidden">
+
+    <div class="panel">
+
+        <div class="test-header">
+
+            <div>
+                <button class="btn btn-light" onclick="showTests()">
+                    ← إنهاء الاختبار
+                </button>
+            </div>
+
+            <div class="test-info">
+                <span class="pill" id="quizSubject">المادة</span>
+                <span class="pill">
+                    السؤال <span id="quizNumber">1</span>/<span id="quizTotal">5</span>
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+
+        <div id="quizBox"></div>
+
+    </div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section id="resultPage" class="hidden">
+
+    <div class="panel result">
+
+        <div class="result-circle">
+            <strong id="resultPercent">0%</strong>
+        </div>
+
+        <h2 id="resultTitle">
+            انتهى الاختبار 🎉
+        </h2>
+
+        <p id="resultText"></p>
+
+        <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+
+            <button class="btn btn-primary" onclick="retryQuiz()">
+                🔄 إعادة الاختبار
+            </button>
+
+            <button class="btn btn-light" onclick="showTests()">
+                📝 اختبارات أخرى
+            </button>
+
+            <button class="btn btn-outline" onclick="goHome()">
+                🏠 الرئيسية
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 </main>
 
-<footer class="footer">
-  رفيق الطالب © <span id="year"></span> — خطوة بخطوة نحو تعلم أفضل
+
+<footer>
+
+    <strong>رفيق الطالب</strong>
+
+    <br>
+
+    أهم الأسئلة، اختر الإجابة، واختبر نفسك.
+
+    <br><br>
+
+    © 2026 رفيق الطالب — جميع الحقوق محفوظة
+
 </footer>
-<div id="toast" class="toast hidden" role="status"></div>
+
 </div>
 
+
+<!-- SUBSCRIBE MODAL -->
+
+<div class="modal" id="subscribeModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>⭐ اشتراك رفيق الطالب</h2>
+
+            <button class="close" onclick="closeSubscribe()">×</button>
+
+        </div>
+
+        <div class="subscribe-info">
+
+            اشتراك الموسم الدراسي: <strong>50 شيكل</strong>
+
+            <br>
+
+            يفتح أهم الأسئلة والاختبارات والمحتوى المميز.
+
+        </div>
+
+        <p style="color:var(--muted);font-size:13px;line-height:1.8;">
+
+            في هذه النسخة التجريبية يمكنك استخدام رمز تفعيل تجريبي.
+            لاحقًا يمكن ربط هذه الصفحة بنظام دفع وتفعيل حقيقي.
+
+        </p>
+
+        <input
+            class="input"
+            id="activationCode"
+            placeholder="أدخل رمز التفعيل"
+        >
+
+        <button class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="activate()">
+            تفعيل الاشتراك
+        </button>
+
+        <button class="btn btn-outline" style="width:100%;margin-top:8px;" onclick="closeSubscribe()">
+            إغلاق
+        </button>
+
+        <div id="activationMessage" style="margin-top:12px;text-align:center;font-size:13px;"></div>
+
+    </div>
+
+</div>
+
+
 <script>
-(function () {
-  "use strict";
 
-  const $ = id => document.getElementById(id);
-  let activeTool = "";
-  let selectedFile = null;
-  let toastTimer;
+/* =========================
+   DATA
+========================= */
 
-  const tools = {
-    summary: {
-      title: "تلخيص المحاضرات",
-      description: "أدخل نصًا دراسيًا لمعاينة طريقة عرض المحتوى قبل ربط الذكاء الاصطناعي.",
-      mode: "text"
+const subjects = {
+
+    arabic:{
+        title:"اللغة العربية",
+        description:"أهم الأسئلة والمراجعة السريعة في اللغة العربية",
+
+        questions:[
+            {
+                important:true,
+                q:"ما نوع كلمة «كتاب» في الجملة: قرأتُ كتابًا مفيدًا؟",
+                a:"اسم."
+            },
+            {
+                important:true,
+                q:"ما هو الفعل الماضي؟",
+                a:"فعل يدل على حدث وقع وانتهى في الزمن الماضي."
+            },
+            {
+                important:false,
+                q:"ما المقصود بالفاعل؟",
+                a:"اسم مرفوع يدل على من قام بالفعل."
+            }
+        ],
+
+        choices:[
+            {
+                q:"أي الكلمات الآتية اسم؟",
+                options:["كتب","كتاب","اكتب","يكتب"],
+                answer:1
+            },
+            {
+                q:"أي الجمل الآتية جملة اسمية؟",
+                options:[
+                    "ذهب الطالب إلى المدرسة.",
+                    "يقرأ الطالب الكتاب.",
+                    "الطالبُ مجتهدٌ.",
+                    "اكتب واجبك."
+                ],
+                answer:2
+            },
+            {
+                q:"ما علامة رفع المبتدأ الأصلية؟",
+                options:["الفتحة","الضمة","الكسرة","السكون"],
+                answer:1
+            }
+        ]
     },
-    assistant: {
-      title: "المساعد الدراسي الذكي",
-      description: "اكتب سؤالًا دراسيًا. الإجابة الذكية الفعلية ستتوفر بعد ربط الخادم.",
-      mode: "text"
+
+
+    math:{
+        title:"الرياضيات",
+        description:"أسئلة وتدريبات رياضية للمراجعة والاختبار",
+
+        questions:[
+            {
+                important:true,
+                q:"ما ناتج 7 × 8؟",
+                a:"56."
+            },
+            {
+                important:true,
+                q:"ما ناتج 100 ÷ 4؟",
+                a:"25."
+            },
+            {
+                important:false,
+                q:"إذا كان س = 5، فما قيمة 2س + 3؟",
+                a:"13."
+            }
+        ],
+
+        choices:[
+            {
+                q:"ما ناتج 12 + 8؟",
+                options:["18","20","22","24"],
+                answer:1
+            },
+            {
+                q:"ما ناتج 9 × 6؟",
+                options:["45","48","54","56"],
+                answer:2
+            },
+            {
+                q:"إذا كان س = 4، فما قيمة س + 6؟",
+                options:["8","9","10","12"],
+                answer:2
+            }
+        ]
     },
-    quiz: {
-      title: "إنشاء اختبار",
-      description: "أدخل موضوعًا أو نصًا دراسيًا لتجهيزه للمرحلة القادمة.",
-      mode: "text"
+
+
+    english:{
+        title:"اللغة الإنجليزية",
+        description:"أسئلة اختيار ومراجعة في اللغة الإنجليزية",
+
+        questions:[
+            {
+                important:true,
+                q:"ما معنى كلمة Book؟",
+                a:"كتاب."
+            },
+            {
+                important:true,
+                q:"ما الماضي من الفعل go؟",
+                a:"Went."
+            },
+            {
+                important:false,
+                q:"ما الضمير المستخدم مع He؟",
+                a:"ضمير المفرد الغائب للمذكر."
+            }
+        ],
+
+        choices:[
+            {
+                q:"Choose the correct answer: She ___ a student.",
+                options:["am","is","are","be"],
+                answer:1
+            },
+            {
+                q:"What is the opposite of Big?",
+                options:["Tall","Small","Long","Fast"],
+                answer:1
+            },
+            {
+                q:"Choose the past of Go.",
+                options:["Goed","Gone","Went","Going"],
+                answer:2
+            }
+        ]
     },
-    notes: {
-      title: "الملازم الدراسية",
-      description: "اختر المادة. سنربط هذه الأداة بمكتبة ملفات مرخصة وميزة إنشاء مذكرات أصلية.",
-      mode: "file"
-    },
-    audio: {
-      title: "تحويل الصوت إلى نص",
-      description: "اختر ملفًا صوتيًا لتجهيز واجهة العمل. التفريغ الحقيقي يحتاج إلى خدمة خلفية.",
-      mode: "file"
-    },
-    video: {
-      title: "تحويل الفيديو إلى نص",
-      description: "اختر ملف فيديو. استخراج النص وتلخيصه سيعملان بعد ربط خدمة معالجة الفيديو.",
-      mode: "file"
+
+
+    science:{
+        title:"العلوم",
+        description:"أهم المفاهيم والأسئلة العلمية",
+
+        questions:[
+            {
+                important:true,
+                q:"ما المصدر الأساسي للطاقة على سطح الأرض؟",
+                a:"الشمس."
+            },
+            {
+                important:true,
+                q:"ما الغاز الذي يحتاجه الإنسان للتنفس؟",
+                a:"الأكسجين."
+            },
+            {
+                important:false,
+                q:"ما الكوكب المعروف بالكوكب الأحمر؟",
+                a:"المريخ."
+            }
+        ],
+
+        choices:[
+            {
+                q:"ما الكوكب المعروف بالكوكب الأحمر؟",
+                options:["الأرض","المريخ","الزهرة","المشتري"],
+                answer:1
+            },
+            {
+                q:"ما الغاز الضروري لعملية التنفس عند الإنسان؟",
+                options:["الأكسجين","النيتروجين","الهيدروجين","ثاني أكسيد الكربون"],
+                answer:0
+            },
+            {
+                q:"ما المصدر الأساسي للطاقة على الأرض؟",
+                options:["القمر","الرياح","الشمس","الماء"],
+                answer:2
+            }
+        ]
     }
-  };
 
-  function showToast(message) {
-    const el = $("toast");
-    el.textContent = message;
-    el.classList.remove("hidden");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => el.classList.add("hidden"), 4000);
-  }
+};
 
-  function openTool(name) {
-    const tool = tools[name];
-    if (!tool) return;
 
-    activeTool = name;
-    $("workspace").classList.remove("hidden");
-    $("workTitle").textContent = tool.title;
-    $("workDescription").textContent = tool.description;
-    $("textArea").classList.toggle("hidden", tool.mode !== "text");
-    $("fileArea").classList.toggle("hidden", tool.mode !== "file");
-    $("textResult").classList.add("hidden");
-    $("fileResult").classList.add("hidden");
-    $("studentText").value = "";
-    $("fileInput").value = "";
-    $("fileName").textContent = "لم يتم اختيار ملف";
-    selectedFile = null;
-    $("workspace").scrollIntoView({behavior:"smooth", block:"start"});
-  }
+/* =========================
+   STATE
+========================= */
 
-  document.querySelectorAll("[data-tool]").forEach(button => {
-    button.addEventListener("click", () => openTool(button.dataset.tool));
-  });
+let currentSubject = null;
 
-  $("startBtn").addEventListener("click", () => {
-    $("services").scrollIntoView({behavior:"smooth", block:"start"});
-  });
+let quizQuestions = [];
 
-  $("homeBtn").addEventListener("click", () => {
-    $("workspace").classList.add("hidden");
+let quizIndex = 0;
+
+let quizScore = 0;
+
+let selectedAnswer = null;
+
+let lastQuizSubject = null;
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function hideAll(){
+
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("subjectPage").classList.add("hidden");
+    document.getElementById("testsPage").classList.add("hidden");
+    document.getElementById("quizPage").classList.add("hidden");
+    document.getElementById("resultPage").classList.add("hidden");
+
+}
+
+function goHome(){
+
+    hideAll();
+
+    document.getElementById("home").classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+function scrollToSubjects(){
+
+    document.getElementById("subjectsSection").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+function showTests(){
+
+    hideAll();
+
+    document.getElementById("testsPage").classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+function openSubject(subject){
+
+    currentSubject = subject;
+
+    const data = subjects[subject];
+
+    hideAll();
+
+    document.getElementById("subjectPage").classList.remove("hidden");
+
+    document.getElementById("subjectTitle").textContent =
+        "📚 " + data.title;
+
+    document.getElementById("subjectDescription").textContent =
+        data.description;
+
+    document.getElementById("subjectContent").innerHTML = "";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+function showImportant(){
+
+    hideAll();
+
+    const page = document.getElementById("subjectPage");
+
+    page.classList.remove("hidden");
+
+    currentSubject = "arabic";
+
+    renderAllImportant();
+
+    document.getElementById("subjectTitle").textContent =
+        "⭐ أهم الأسئلة";
+
+    document.getElementById("subjectDescription").textContent =
+        "أسئلة مختارة للمراجعة السريعة";
+
     window.scrollTo({top:0,behavior:"smooth"});
-  });
 
-  $("previewBtn").addEventListener("click", () => {
-    const text = $("studentText").value.trim();
-    const result = $("textResult");
+}
 
-    if (text.length < 20) {
-      showToast("أدخل نصًا أطول قليلًا حتى نعرض معاينة مفيدة.");
-      return;
+
+function renderAllImportant(){
+
+    let html = `
+        <div class="panel">
+            <div class="section-head" style="margin-top:0">
+                <div>
+                    <h2>⭐ أهم الأسئلة</h2>
+                    <p>راجع هذه الأسئلة قبل الامتحان</p>
+                </div>
+            </div>
+    `;
+
+    Object.keys(subjects).forEach(key=>{
+
+        const data = subjects[key];
+
+        html += `
+            <h3 style="margin-top:25px;">
+                ${data.title}
+            </h3>
+        `;
+
+        data.questions.forEach((item,index)=>{
+
+            if(!item.important) return;
+
+            html += `
+                <div class="question-card important">
+
+                    <div class="question-top">
+
+                        <span class="question-number">
+                            ${index+1}
+                        </span>
+
+                        <span class="badge-important">
+                            🔥 مهم جدًا
+                        </span>
+
+                    </div>
+
+                    <div class="question-text">
+                        ${item.q}
+                    </div>
+
+                    <div class="answer-box">
+
+                        <div class="answer-label">
+                            الإجابة
+                        </div>
+
+                        ${item.a}
+
+                    </div>
+
+                </div>
+            `;
+
+        });
+
+    });
+
+    html += `</div>`;
+
+    document.getElementById("subjectContent").innerHTML = html;
+
+}
+
+
+function showSubjectQuestions(){
+
+    if(!currentSubject) return;
+
+    const data = subjects[currentSubject];
+
+    let html = `
+        <div class="panel">
+
+            <div class="section-head" style="margin-top:0">
+
+                <div>
+                    <h2>⭐ أهم أسئلة ${data.title}</h2>
+                    <p>أسئلة يجب مراجعتها</p>
+                </div>
+
+            </div>
+    `;
+
+    data.questions.forEach((item,index)=>{
+
+        html += `
+            <div class="question-card ${item.important ? "important":""}">
+
+                <div class="question-top">
+
+                    <span class="question-number">
+                        سؤال ${index+1}
+                    </span>
+
+                    ${
+                        item.important
+                        ? `<span class="badge-important">🔥 مهم</span>`
+                        : ""
+                    }
+
+                </div>
+
+                <div class="question-text">
+                    ${item.q}
+                </div>
+
+                <div class="answer-box">
+
+                    <div class="answer-label">
+                        الإجابة
+                    </div>
+
+                    ${item.a}
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    document.getElementById("subjectContent").innerHTML = html;
+
+}
+
+
+function showChoices(){
+
+    hideAll();
+
+    document.getElementById("subjectPage").classList.remove("hidden");
+
+    currentSubject = "arabic";
+
+    showSubjectChoices();
+
+    document.getElementById("subjectTitle").textContent =
+        "✅ اختر الإجابة الصحيحة";
+
+    document.getElementById("subjectDescription").textContent =
+        "تدرب على أسئلة الاختيار من متعدد";
+
+}
+
+
+function showSubjectChoices(){
+
+    if(!currentSubject) return;
+
+    const data = subjects[currentSubject];
+
+    let html = `
+        <div class="panel">
+
+            <div class="section-head" style="margin-top:0">
+
+                <div>
+                    <h2>✅ اختر الإجابة الصحيحة</h2>
+                    <p>${data.title}</p>
+                </div>
+
+            </div>
+    `;
+
+    data.choices.forEach((item,index)=>{
+
+        html += `
+            <div class="question-card">
+
+                <div class="question-number">
+                    سؤال ${index+1}
+                </div>
+
+                <div class="question-text">
+                    ${item.q}
+                </div>
+
+                <div>
+        `;
+
+        item.options.forEach((option,optIndex)=>{
+
+            html += `
+                <button
+                    class="choice-option"
+                    onclick="checkChoice(this, ${optIndex}, ${item.answer})">
+
+                    ${option}
+
+                </button>
+            `;
+
+        });
+
+        html += `
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    document.getElementById("subjectContent").innerHTML = html;
+
+}
+
+
+function checkChoice(button,index,correct){
+
+    const buttons =
+        button.parentElement.querySelectorAll(".choice-option");
+
+    buttons.forEach(btn=>{
+        btn.disabled = true;
+    });
+
+    if(index === correct){
+
+        button.classList.add("correct");
+
+    }else{
+
+        button.classList.add("wrong");
+
+        buttons[correct].classList.add("correct");
+
     }
 
-    const sentences = text
-      .split(/[.!؟?\n]+/)
-      .map(s => s.trim())
-      .filter(Boolean);
+}
 
-    let output;
-    if (activeTool === "assistant") {
-      output = "تم استلام سؤالك بنجاح.\n\n"
-        + "المادة: " + $("subject").value
-        + "\n\nهذه نسخة واجهة تجريبية. لم يتم إرسال السؤال إلى نموذج ذكاء اصطناعي بعد.";
-    } else if (activeTool === "quiz") {
-      output = "موضوع المراجعة: " + $("subject").value
-        + "\n\nتم تجهيز النص للمرحلة القادمة.\n"
-        + "إنشاء الأسئلة وتصحيحها تلقائيًا يحتاج إلى ربط خدمة الذكاء الاصطناعي.";
-    } else {
-      const limit = Math.max(1, Math.ceil(sentences.length * 0.4));
-      output = "معاينة أولية غير ذكية — " + $("subject").value
-        + "\n\n" + sentences.slice(0, limit).join(". ") + "."
-        + "\n\nتنبيه: هذا اقتطاع بسيط من النص وليس تلخيصًا موثوقًا أو مولّدًا بالذكاء الاصطناعي.";
+
+/* =========================
+   QUIZ
+========================= */
+
+function startQuiz(subject){
+
+    currentSubject = subject;
+
+    lastQuizSubject = subject;
+
+    const data = subjects[subject];
+
+    quizQuestions = data.choices.map(q=>({
+
+        question:q.q,
+        options:q.options,
+        answer:q.answer
+
+    }));
+
+    quizIndex = 0;
+
+    quizScore = 0;
+
+    selectedAnswer = null;
+
+    hideAll();
+
+    document.getElementById("quizPage").classList.remove("hidden");
+
+    document.getElementById("quizSubject").textContent =
+        data.title;
+
+    document.getElementById("quizTotal").textContent =
+        quizQuestions.length;
+
+    renderQuiz();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function renderQuiz(){
+
+    const q = quizQuestions[quizIndex];
+
+    document.getElementById("quizNumber").textContent =
+        quizIndex + 1;
+
+    const progress =
+        ((quizIndex) / quizQuestions.length) * 100;
+
+    document.getElementById("progressBar").style.width =
+        progress + "%";
+
+    selectedAnswer = null;
+
+    let html = `
+
+        <div class="test-question">
+            ${q.question}
+        </div>
+
+        <div id="quizOptions">
+    `;
+
+    q.options.forEach((option,index)=>{
+
+        html += `
+            <button
+                class="test-option"
+                onclick="selectQuizAnswer(${index})">
+
+                ${option}
+
+            </button>
+        `;
+
+    });
+
+    html += `
+
+        </div>
+
+        <div class="test-actions">
+
+            <button
+                class="btn btn-outline"
+                onclick="finishQuiz()">
+
+                إنهاء الاختبار
+
+            </button>
+
+            <button
+                id="nextQuizButton"
+                class="btn btn-primary"
+                onclick="nextQuiz()"
+                disabled>
+
+                ${quizIndex === quizQuestions.length-1
+                    ? "إنهاء الاختبار"
+                    : "السؤال التالي ←"}
+
+            </button>
+
+        </div>
+    `;
+
+    document.getElementById("quizBox").innerHTML = html;
+
+}
+
+
+function selectQuizAnswer(index){
+
+    selectedAnswer = index;
+
+    const options =
+        document.querySelectorAll(".test-option");
+
+    options.forEach((btn,i)=>{
+
+        btn.classList.toggle(
+            "selected",
+            i === index
+        );
+
+    });
+
+    document.getElementById("nextQuizButton").disabled =
+        false;
+
+}
+
+
+function nextQuiz(){
+
+    if(selectedAnswer === null) return;
+
+    const correct =
+        quizQuestions[quizIndex].answer;
+
+    if(selectedAnswer === correct){
+
+        quizScore++;
+
     }
 
-    result.textContent = output;
-    result.classList.remove("hidden");
-  });
+    if(quizIndex === quizQuestions.length-1){
 
-  $("fileInput").addEventListener("change", event => {
-    selectedFile = event.target.files && event.target.files[0]
-      ? event.target.files[0] : null;
+        finishQuiz();
 
-    $("fileName").textContent = selectedFile
-      ? selectedFile.name + " — " + (selectedFile.size / (1024 * 1024)).toFixed(2) + " MB"
-      : "لم يتم اختيار ملف";
-    $("fileResult").classList.add("hidden");
-  });
+        return;
 
-  $("fileBtn").addEventListener("click", () => {
-    if (!selectedFile) {
-      showToast("يرجى اختيار ملف أولًا.");
-      return;
     }
 
-    const ext = selectedFile.name.split(".").pop().toLowerCase();
-    const allowed = ["pdf","docx","txt","png","jpg","jpeg","webp",
-                     "mp3","wav","m4a","mp4","webm"];
+    quizIndex++;
 
-    if (!allowed.includes(ext)) {
-      showToast("نوع الملف غير مدعوم في هذه النسخة.");
-      return;
+    renderQuiz();
+
+}
+
+
+function finishQuiz(){
+
+    if(
+        selectedAnswer !== null &&
+        quizIndex < quizQuestions.length
+    ){
+
+        if(
+            selectedAnswer ===
+            quizQuestions[quizIndex].answer
+        ){
+
+            quizScore++;
+
+        }
+
     }
 
-    if (selectedFile.size > 25 * 1024 * 1024) {
-      showToast("حجم الملف يتجاوز حد المعاينة البالغ 25 ميغابايت.");
-      return;
+    const total = quizQuestions.length;
+
+    const percent =
+        Math.round((quizScore / total) * 100);
+
+    document.getElementById("resultPercent").textContent =
+        percent + "%";
+
+    document.getElementById("resultText").textContent =
+        `أجبت بشكل صحيح عن ${quizScore} من ${total} أسئلة.`;
+
+    let title = "حاول مرة أخرى 💪";
+
+    if(percent >= 80){
+
+        title = "ممتاز جدًا! 🎉";
+
+    }else if(percent >= 60){
+
+        title = "جيد جدًا! 👏";
+
+    }else if(percent >= 40){
+
+        title = "بداية جيدة 👍";
+
     }
 
-    const result = $("fileResult");
-    result.textContent =
-      "تم اختيار الملف بنجاح.\n"
-      + "اسم الملف: " + selectedFile.name + "\n"
-      + "المادة: " + $("fileSubject").value + "\n\n"
-      + "لم يتم رفع الملف أو معالجته. سنضيف الرفع الآمن ومعالجة المحتوى "
-      + "بعد تجهيز الخادم والتحقق من صلاحيات المستخدم وحدود الاستخدام.";
-    result.classList.remove("hidden");
-  });
+    document.getElementById("resultTitle").textContent =
+        title;
 
-  $("paymentInfoBtn").addEventListener("click", () => {
-    showToast("الاشتراك محدد مبدئيًا. سنفعّل الدفع بعد ربط بوابة معتمدة والتحقق من الدفع.");
-  });
+    hideAll();
 
-  $("year").textContent = new Date().getFullYear();
-})();
+    document.getElementById("resultPage").classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function retryQuiz(){
+
+    startQuiz(lastQuizSubject);
+
+}
+
+
+/* =========================
+   SUBSCRIPTION
+========================= */
+
+function openSubscribe(){
+
+    document
+        .getElementById("subscribeModal")
+        .classList.add("active");
+
+}
+
+
+function closeSubscribe(){
+
+    document
+        .getElementById("subscribeModal")
+        .classList.remove("active");
+
+}
+
+
+function activate(){
+
+    const code =
+        document
+            .getElementById("activationCode")
+            .value
+            .trim();
+
+    const message =
+        document.getElementById("activationMessage");
+
+    /*
+       رمز تجريبي فقط.
+       غيّره لاحقًا عندما تربط نظام الاشتراك الحقيقي.
+    */
+
+    if(code === "RAFQ50"){
+
+        localStorage.setItem(
+            "rafiq_student_active",
+            "true"
+        );
+
+        message.style.color =
+            "#138a62";
+
+        message.textContent =
+            "تم تفعيل الاشتراك بنجاح 🎉";
+
+        setTimeout(()=>{
+
+            closeSubscribe();
+
+        },1200);
+
+    }else{
+
+        message.style.color =
+            "#dc3545";
+
+        message.textContent =
+            "رمز التفعيل غير صحيح.";
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    goHome();
+
+});
+
 </script>
+
 </body>
 </html>
+```

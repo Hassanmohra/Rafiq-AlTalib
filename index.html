@@ -1,2161 +1,1020 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#6941c6">
-<meta name="description" content="رفيق الطالب - أهم الأسئلة والاختبارات للطلاب">
-
-<title>رفيق الطالب | أهم الأسئلة والاختبارات</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f7ff">
+<title>سفراء التفوق | طريقك نحو العلامة الكاملة</title>
+<meta name="description" content="سفراء التفوق منصة للمراجعة والتدريب والاختبارات، تساعدك على الاستعداد للامتحانات بثقة.">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
 :root{
-    --primary:#6941c6;
-    --primary-dark:#5030a0;
-    --primary-light:#f0ebff;
-    --purple:#805ad5;
-    --green:#15956d;
-    --green-light:#eafaf4;
-    --orange:#f59e0b;
-    --orange-light:#fff7e6;
-    --red:#dc3545;
-    --red-light:#fff0f1;
-    --blue:#2563eb;
-    --blue-light:#eff6ff;
-    --ink:#202036;
-    --muted:#77788c;
-    --line:#ebe8f2;
-    --bg:#f7f7fb;
-    --white:#fff;
-    --radius:18px;
-    --shadow:0 10px 30px rgba(41,32,75,.07);
+  --purple:#7558d9;
+  --purple-dark:#5e42bd;
+  --purple-light:#f0ebff;
+  --blue:#4199ec;
+  --blue-light:#eaf5ff;
+  --green:#21a47e;
+  --green-light:#e5f9f0;
+  --pink:#e977a8;
+  --pink-light:#fff0f6;
+  --orange:#efa23f;
+  --orange-light:#fff5e6;
+  --ink:#292941;
+  --muted:#81829a;
+  --line:#ebeaf4;
+  --bg:#f8f9ff;
+  --white:#fff;
+  --shadow:0 12px 35px rgba(67,54,130,.07);
 }
 
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    margin:0;
-    font-family:"Cairo",sans-serif;
-    background:var(--bg);
-    color:var(--ink);
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Cairo',Tahoma,Arial,sans-serif;
+  line-height:1.85;
 }
-
-button,
-input,
-select{
-    font:inherit;
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{
+  outline:3px solid #b9a9ff;
+  outline-offset:3px;
 }
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92%);margin:auto}
+.hidden{display:none!important}
+section{scroll-margin-top:90px}
 
-button{
-    cursor:pointer;
+/* شريط التنقل */
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(14px);
 }
-
-a{
-    text-decoration:none;
-    color:inherit;
+.nav{
+  min-height:77px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
-
-button:focus-visible,
-a:focus-visible{
-    outline:3px solid #c7b7ff;
-    outline-offset:3px;
-}
-
-/* HEADER */
-
-.topbar{
-    height:72px;
-    background:rgba(255,255,255,.96);
-    border-bottom:1px solid var(--line);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 5%;
-    position:sticky;
-    top:0;
-    z-index:100;
-    backdrop-filter:blur(10px);
-}
-
 .brand{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-weight:800;
-    font-size:20px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:21px;
+  font-weight:900;
 }
-
-.logo{
-    width:44px;
-    height:44px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#6941c6,#8d70e5);
-    color:#fff;
-    display:grid;
-    place-items:center;
-    font-size:23px;
-    box-shadow:0 7px 18px rgba(105,65,198,.25);
+.brand-icon{
+  width:47px;height:47px;
+  display:grid;place-items:center;
+  border-radius:16px;
+  color:white;font-size:25px;
+  background:linear-gradient(145deg,#9479f3,#6848ca);
+  box-shadow:0 7px 18px #7558d925;
 }
-
-.brand-text small{
-    display:block;
-    font-size:10px;
-    color:var(--muted);
-    font-weight:500;
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:600;
+  line-height:1.4;
 }
-
-.top-actions{
-    display:flex;
-    gap:9px;
-    align-items:center;
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{
+  color:#6c6c83;
+  font-size:13px;
+  font-weight:800;
 }
-
+.nav-links a:hover{color:var(--purple)}
 .btn{
-    border:0;
-    border-radius:12px;
-    padding:11px 17px;
-    font-weight:700;
-    transition:.2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:11px 17px;
+  border:0;
+  border-radius:13px;
+  font-weight:800;
+  transition:transform .2s,box-shadow .2s;
 }
-
-.btn:hover{
-    transform:translateY(-1px);
-}
-
+.btn:hover{transform:translateY(-2px)}
 .btn-primary{
-    background:var(--primary);
-    color:#fff;
+  color:white;
+  background:linear-gradient(135deg,#8466e8,#6847ca);
+  box-shadow:0 7px 18px #7558d928;
 }
+.btn-light{background:var(--purple-light);color:var(--purple)}
+.btn-outline{background:white;border:1px solid var(--line);color:var(--ink)}
+.btn-green{background:var(--green-light);color:#17815f}
+.menu-btn{display:none}
 
-.btn-primary:hover{
-    background:var(--primary-dark);
+/* الواجهة الرئيسية */
+.hero{padding:39px 0 25px}
+.hero-box{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #e8e1ff;
+  border-radius:31px;
+  padding:43px;
+  background:linear-gradient(115deg,#f0ebff 0%,#f8f7ff 48%,#e9f6ff 100%);
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  align-items:center;
+  gap:25px;
 }
-
-.btn-light{
-    background:var(--primary-light);
-    color:var(--primary);
+.hero-box:before{
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  top:-160px;right:35%;
+  border-radius:50%;
+  background:#d6cbff50;
 }
-
-.btn-outline{
-    background:#fff;
-    border:1px solid var(--line);
-    color:var(--ink);
+.hero-content,.hero-art{position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 13px;
+  background:white;
+  border:1px solid #e8e0ff;
+  color:var(--purple);
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
 }
-
-/* MAIN */
-
-.container{
-    max-width:1180px;
-    margin:auto;
-    padding:28px 22px 70px;
-}
-
-/* HERO */
-
-.hero{
-    background:linear-gradient(120deg,#5030a0,#6941c6 58%,#8d70e5);
-    border-radius:26px;
-    padding:38px;
-    color:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:25px;
-    overflow:hidden;
-    position:relative;
-    box-shadow:0 15px 35px rgba(80,48,160,.18);
-}
-
-.hero:before{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    left:-80px;
-    top:-100px;
-}
-
-.hero-content{
-    position:relative;
-    z-index:1;
-}
-
-.hero-badge{
-    display:inline-flex;
-    background:rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.18);
-    padding:6px 12px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:13px;
-}
-
 .hero h1{
-    margin:0 0 12px;
-    font-size:clamp(27px,4vw,40px);
-    line-height:1.45;
+  margin:15px 0 12px;
+  font-size:clamp(30px,4.2vw,47px);
+  font-weight:900;
+  line-height:1.5;
+  letter-spacing:-1px;
 }
-
+.gradient-text{color:var(--purple)}
 .hero p{
-    margin:0;
-    color:#eee9ff;
-    line-height:2;
-    max-width:650px;
+  max-width:580px;
+  color:#777890;
+  font-size:14px;
+  margin:0 0 22px;
 }
-
-.hero-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:22px;
-}
-
-.hero .btn-white{
-    background:#fff;
-    color:var(--primary);
-}
-
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.hero-note{margin-top:15px;font-size:12px;color:#8988a0}
 .hero-art{
-    font-size:105px;
-    position:relative;
-    z-index:1;
+  min-height:260px;
+  display:grid;
+  place-items:center;
 }
-
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:20px;
+.book{
+  width:210px;height:225px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:1px solid white;
+  border-radius:29px;
+  background:linear-gradient(145deg,#fff,#f3efff);
+  box-shadow:0 25px 55px #6f5fc32a;
+  transform:rotate(-5deg);
 }
-
-.stat{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:17px;
-    text-align:center;
-    box-shadow:var(--shadow);
+.book .book-emoji{font-size:76px;line-height:1.4}
+.book strong{font-size:20px}
+.book small{color:var(--muted)}
+.float-card{
+  position:absolute;
+  padding:10px 14px;
+  background:white;
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  font-size:12px;
+  font-weight:800;
 }
+.float-one{top:12px;right:0;color:var(--green)}
+.float-two{bottom:14px;left:0;color:var(--orange)}
 
-.stat-icon{
-    font-size:25px;
-}
-
-.stat strong{
-    display:block;
-    font-size:22px;
-    margin-top:3px;
-}
-
-.stat span{
-    font-size:12px;
-    color:var(--muted);
-}
-
-/* SECTION */
-
+/* الأقسام */
+.section{padding:29px 0}
 .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin:35px 0 17px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
 }
-
-.section-head h2{
-    margin:0;
-    font-size:22px;
+.section-head h2{font-size:24px;font-weight:900;margin:0}
+.section-head p{font-size:12px;color:var(--muted);margin:2px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.stat{
+  display:flex;align-items:center;gap:14px;
+  background:white;border:1px solid var(--line);
+  border-radius:21px;padding:17px;
 }
-
-.section-head p{
-    margin:4px 0 0;
-    color:var(--muted);
-    font-size:13px;
+.stat-icon{
+  width:52px;height:52px;flex-shrink:0;
+  border-radius:17px;display:grid;place-items:center;font-size:24px;
 }
+.stat strong{display:block;font-size:17px}
+.stat span{font-size:11px;color:var(--muted)}
+.bg-purple{background:var(--purple-light)}
+.bg-blue{background:var(--blue-light)}
+.bg-green{background:var(--green-light)}
+.bg-pink{background:var(--pink-light)}
+.bg-orange{background:var(--orange-light)}
 
-/* SUBJECTS */
-
-.subject-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+/* المواد */
+.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.subject-card{
+  width:100%;
+  text-align:right;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:white;
+  padding:20px;
+  transition:.2s;
 }
-
-.subject{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:20px;
-    cursor:pointer;
-    transition:.2s;
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-}
-
-.subject:hover{
-    transform:translateY(-4px);
-    border-color:#c9b8ff;
-}
-
+.subject-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .subject-icon{
-    width:54px;
-    height:54px;
-    border-radius:16px;
-    display:grid;
-    place-items:center;
-    font-size:27px;
-    background:var(--primary-light);
-    margin-bottom:14px;
+  width:57px;height:57px;border-radius:18px;
+  display:grid;place-items:center;font-size:28px;margin-bottom:14px;
+}
+.subject-card h3{font-size:16px;margin:0 0 4px}
+.subject-card p{font-size:11px;color:var(--muted);margin:0}
+.subject-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--line);
+  margin-top:15px;padding-top:12px;
+  color:var(--muted);font-size:11px;
+}
+.arrow-circle{
+  width:29px;height:29px;border-radius:50%;
+  background:var(--purple-light);color:var(--purple);
+  display:grid;place-items:center;
 }
 
-.subject h3{
-    margin:0 0 5px;
-    font-size:17px;
-}
-
-.subject p{
-    margin:0;
-    color:var(--muted);
-    font-size:12px;
-}
-
-.subject-arrow{
-    margin-top:15px;
-    color:var(--primary);
-    font-weight:800;
-    font-size:13px;
-}
-
-/* QUICK CARDS */
-
-.quick-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
+/* الوصول السريع */
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .quick-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:22px;
-    box-shadow:var(--shadow);
-    cursor:pointer;
-    transition:.2s;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:22px;border:1px solid transparent;border-radius:22px;
 }
-
-.quick-card:hover{
-    transform:translateY(-3px);
-}
-
+.quick-card.purple{background:#f0ebff;border-color:#e3dbff}
+.quick-card.blue{background:#eaf5ff;border-color:#dceeff}
+.quick-card.green{background:#e7faf2;border-color:#d7f3e7}
 .quick-icon{
-    font-size:32px;
-    margin-bottom:10px;
+  width:49px;height:49px;flex-shrink:0;
+  display:grid;place-items:center;background:white;
+  border-radius:16px;font-size:24px;
+}
+.quick-card h3{font-size:15px;margin:0 0 4px}
+.quick-card p{font-size:11px;color:#777890;margin:0 0 11px}
+.quick-card button{
+  border:0;background:white;color:var(--purple);
+  border-radius:10px;padding:7px 12px;
+  font-size:11px;font-weight:900;
 }
 
-.quick-card h3{
-    margin:0 0 5px;
-}
-
-.quick-card p{
-    margin:0;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.8;
-}
-
-/* CONTENT */
-
+/* المساحة التفاعلية */
 .panel{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:22px;
-    box-shadow:var(--shadow);
+  background:white;border:1px solid var(--line);
+  border-radius:24px;padding:22px;box-shadow:0 5px 20px #38345c05;
 }
-
-.hidden{
-    display:none!important;
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:17px}
+.filter-btn{
+  background:white;border:1px solid var(--line);
+  border-radius:11px;padding:8px 12px;
+  color:#74748b;font-size:12px;font-weight:800;
 }
-
-/* QUESTIONS */
-
+.filter-btn.active{background:var(--purple-light);color:var(--purple);border-color:#dfd5ff}
 .question-card{
-    border:1px solid var(--line);
-    border-radius:17px;
-    padding:20px;
-    margin-bottom:14px;
-    background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;padding:17px;margin-bottom:12px;
+}
+.question-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.question-top h3{font-size:14px;margin:0}
+.tag{
+  background:var(--orange-light);color:#b67a1e;
+  padding:4px 9px;border-radius:20px;
+  font-size:10px;font-weight:900;white-space:nowrap;
+}
+.answer{
+  margin-top:12px;padding:10px 12px;
+  border-radius:11px;background:var(--green-light);
+  color:#177e5d;font-size:12px;
+}
+.choice-list{display:grid;gap:9px;margin-top:13px}
+.choice{
+  text-align:right;border:1px solid var(--line);
+  border-radius:11px;background:#fcfcff;
+  padding:11px 13px;color:var(--ink);font-size:13px;
+}
+.choice:hover{background:#f5f1ff;border-color:#cfc0ff}
+.choice.correct{background:#e5f9f0;border-color:#77d4af;color:#147b58}
+.choice.wrong{background:#fff0f4;border-color:#ffb7c7;color:#b73558}
+.feedback{font-size:12px;font-weight:800;margin-top:10px}
+.empty{text-align:center;color:var(--muted);padding:25px}
+
+/* الاختبارات */
+.quiz-box{max-width:760px;margin:auto}
+.quiz-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}
+.quiz-progress{height:8px;background:#eeeafb;border-radius:20px;overflow:hidden;margin:15px 0 22px}
+.quiz-progress div{height:100%;background:linear-gradient(90deg,#9b83f3,#5c9ff0);transition:.3s}
+.quiz-question{font-size:20px;line-height:1.8;margin:10px 0 20px}
+.quiz-options{display:grid;gap:10px}
+.quiz-option{
+  text-align:right;background:white;color:var(--ink);
+  border:1px solid var(--line);border-radius:14px;padding:13px 15px;
+}
+.quiz-option:hover:not(:disabled){background:var(--purple-light);border-color:#cfc0ff}
+.quiz-option.selected{background:var(--purple-light);border-color:var(--purple)}
+.quiz-option:disabled{cursor:default}
+.quiz-controls{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.result{text-align:center;padding:18px 5px}
+.result-emoji{font-size:65px}
+.result h2{font-size:26px;margin:5px 0}
+.score-circle{
+  width:130px;height:130px;border-radius:50%;
+  background:var(--green-light);color:var(--green);
+  display:grid;place-items:center;margin:20px auto;
+  border:7px solid #c8f0df;font-size:31px;font-weight:900;
 }
 
-.question-top{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:flex-start;
+/* الاشتراكات */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{
+  position:relative;background:white;
+  border:1px solid var(--line);border-radius:23px;padding:23px;
+}
+.price-card.featured{border:2px solid #b5a3ff;box-shadow:0 12px 35px #795de91a}
+.popular{
+  display:inline-block;background:var(--purple-light);
+  color:var(--purple);padding:4px 10px;border-radius:20px;
+  font-size:10px;font-weight:900;
+}
+.price-card h3{font-size:17px;margin:12px 0 0}
+.price{font-size:26px;font-weight:900;margin:8px 0}
+.price small{font-size:12px;color:var(--muted)}
+.price-card ul{list-style:none;padding:0;margin:15px 0}
+.price-card li{font-size:12px;padding:5px 0;color:#73748b}
+.price-card li:before{content:"✓";color:var(--green);font-weight:900;margin-left:8px}
+.price-card .btn{width:100%}
+.subscription-note{
+  margin-top:16px;background:#fff8e9;color:#87672d;
+  border:1px solid #f8e9c3;border-radius:14px;padding:13px;font-size:11px;
 }
 
-.question-number{
-    background:var(--primary-light);
-    color:var(--primary);
-    padding:5px 10px;
-    border-radius:9px;
-    font-size:12px;
-    font-weight:800;
-}
-
-.question-text{
-    font-size:16px;
-    font-weight:700;
-    line-height:1.9;
-    margin:14px 0;
-}
-
-.answer-box{
-    background:var(--green-light);
-    border:1px solid #ccefe1;
-    border-radius:13px;
-    padding:13px 15px;
-    color:#116b50;
-    line-height:1.9;
-}
-
-.answer-label{
-    font-size:11px;
-    font-weight:800;
-    margin-bottom:4px;
-}
-
-/* IMPORTANT */
-
-.important{
-    border-right:5px solid var(--orange);
-}
-
-.badge-important{
-    background:var(--orange-light);
-    color:#a96700;
-    border-radius:20px;
-    padding:5px 9px;
-    font-size:11px;
-    font-weight:800;
-}
-
-/* CHOICE */
-
-.choice-option{
-    width:100%;
-    text-align:right;
-    border:1px solid var(--line);
-    background:#fff;
-    padding:13px 15px;
-    border-radius:12px;
-    margin-top:9px;
-    transition:.2s;
-}
-
-.choice-option:hover{
-    background:var(--primary-light);
-    border-color:#c9b8ff;
-}
-
-.choice-option.correct{
-    background:var(--green-light);
-    border-color:#83d8bb;
-    color:#087254;
-}
-
-.choice-option.wrong{
-    background:var(--red-light);
-    border-color:#f1a6ae;
-    color:#b42333;
-}
-
-/* TEST */
-
-.test-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-bottom:20px;
-}
-
-.test-info{
-    display:flex;
-    gap:9px;
-    flex-wrap:wrap;
-}
-
-.pill{
-    background:#f4f2f8;
-    color:#5d5870;
-    padding:7px 12px;
-    border-radius:30px;
-    font-size:12px;
-    font-weight:700;
-}
-
-.progress{
-    height:8px;
-    background:#eeeaf5;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:25px;
-}
-
-.progress-bar{
-    height:100%;
-    background:linear-gradient(90deg,#6941c6,#967be6);
-    width:0%;
-    transition:.3s;
-}
-
-.test-question{
-    font-size:20px;
-    line-height:1.8;
-    font-weight:800;
-    margin-bottom:18px;
-}
-
-.test-option{
-    display:block;
-    width:100%;
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:14px;
-    padding:15px;
-    margin:10px 0;
-    text-align:right;
-    transition:.2s;
-}
-
-.test-option:hover{
-    border-color:#b8a5ec;
-    background:#faf8ff;
-}
-
-.test-option.selected{
-    background:var(--primary-light);
-    border-color:var(--primary);
-    color:var(--primary);
-    font-weight:700;
-}
-
-.test-actions{
-    display:flex;
-    justify-content:space-between;
-    margin-top:25px;
-}
-
-/* RESULT */
-
-.result{
-    text-align:center;
-    padding:35px 20px;
-}
-
-.result-circle{
-    width:145px;
-    height:145px;
-    border-radius:50%;
-    border:10px solid #e9e0ff;
-    display:grid;
-    place-items:center;
-    margin:0 auto 20px;
-    color:var(--primary);
-}
-
-.result-circle strong{
-    font-size:32px;
-}
-
-.result h2{
-    margin:0 0 8px;
-}
-
-.result p{
-    color:var(--muted);
-}
-
-/* SUBSCRIPTION */
-
-.subscription{
-    margin-top:30px;
-    background:linear-gradient(120deg,#fff,#f7f2ff);
-    border:1px solid #ddd2f6;
-    border-radius:22px;
-    padding:27px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.subscription h2{
-    margin:0 0 6px;
-}
-
-.subscription p{
-    margin:0;
-    color:var(--muted);
-    line-height:1.9;
-}
-
-.price{
-    font-size:30px;
-    font-weight:800;
-    color:var(--primary);
-    white-space:nowrap;
-}
-
-/* MODAL */
-
+/* التذييل والنافذة */
+.footer{margin-top:28px;background:white;border-top:1px solid var(--line);padding:25px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.footer p{font-size:11px;color:var(--muted);margin:0}
 .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(20,16,35,.6);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:500;
-    padding:20px;
+  position:fixed;inset:0;z-index:50;
+  display:none;align-items:center;justify-content:center;
+  padding:17px;background:#24213b80;backdrop-filter:blur(5px);
 }
-
-.modal.active{
-    display:flex;
-}
-
+.modal.show{display:flex}
 .modal-box{
-    width:min(500px,100%);
-    background:#fff;
-    border-radius:22px;
-    padding:25px;
-    box-shadow:0 30px 80px rgba(0,0,0,.2);
+  position:relative;width:min(430px,100%);
+  background:white;border-radius:24px;padding:25px;
+  box-shadow:0 25px 80px #1d193e30;
 }
-
-.modal-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
+.modal-close{
+  position:absolute;left:14px;top:12px;
+  border:0;background:#f3f2f8;border-radius:10px;
+  width:34px;height:34px;font-size:20px;
 }
-
-.modal-head h2{
-    margin:0;
+.modal-box h2{font-size:21px;margin:0 0 6px}
+.modal-box p{font-size:12px;color:var(--muted)}
+.modal-box label{display:block;font-size:12px;font-weight:900;margin:13px 0 5px}
+.modal-box input{
+  width:100%;border:1px solid var(--line);
+  border-radius:11px;padding:11px;background:#fcfcff;
 }
-
-.close{
-    border:0;
-    background:#f4f2f7;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    font-size:18px;
+.modal-box .btn{width:100%;margin-top:15px}
+#modalMessage{font-size:12px;font-weight:800;margin-top:10px}
+.toast{
+  position:fixed;bottom:18px;left:18px;z-index:60;
+  background:#292941;color:white;padding:12px 16px;
+  border-radius:13px;font-size:12px;max-width:90%;display:none;
 }
+.toast.show{display:block}
 
-.input{
-    width:100%;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:13px;
-    margin:10px 0;
-    outline:none;
+@media(max-width:850px){
+  .nav-links{display:none}
+  .menu-btn{display:inline-flex}
+  .subscribe-top{display:none}
+  .hero-box{grid-template-columns:1fr;padding:29px}
+  .hero-art{min-height:220px}
+  .subjects{grid-template-columns:repeat(2,1fr)}
+  .quick-grid{grid-template-columns:1fr}
+  .pricing{grid-template-columns:1fr}
 }
-
-.input:focus{
-    border-color:var(--primary);
+@media(max-width:560px){
+  .container{width:93%}
+  .nav{min-height:67px}
+  .brand{font-size:17px}
+  .brand-icon{width:41px;height:41px}
+  .hero{padding-top:20px}
+  .hero-box{padding:23px 18px;border-radius:23px}
+  .hero h1{font-size:29px}
+  .hero p{font-size:12px}
+  .hero-art{min-height:190px}
+  .book{width:165px;height:175px}
+  .book .book-emoji{font-size:57px}
+  .float-one{right:0;top:5px}
+  .float-two{left:0;bottom:4px}
+  .stats{grid-template-columns:1fr}
+  .stat{padding:13px}
+  .subjects{gap:10px}
+  .subject-card{padding:13px;border-radius:17px}
+  .subject-icon{width:47px;height:47px;font-size:23px}
+  .subject-card h3{font-size:13px}
+  .subject-card p{font-size:10px}
+  .section{padding:22px 0}
+  .section-head h2{font-size:20px}
+  .section-head p{font-size:10px}
+  .panel{padding:14px}
+  .question-top{align-items:flex-start}
+  .quiz-question{font-size:17px}
+  .btn{padding:10px 12px;font-size:12px}
 }
-
-.subscribe-info{
-    background:var(--primary-light);
-    color:#56418f;
-    border-radius:14px;
-    padding:13px;
-    line-height:1.8;
-    font-size:13px;
-    margin:12px 0;
-}
-
-/* FOOTER */
-
-footer{
-    border-top:1px solid var(--line);
-    background:#fff;
-    padding:25px;
-    text-align:center;
-    color:var(--muted);
-    font-size:12px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .subject-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .quick-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-art{
-        font-size:70px;
-    }
-}
-
-@media(max-width:650px){
-
-    .topbar{
-        padding:0 15px;
-    }
-
-    .top-actions .btn-outline{
-        display:none;
-    }
-
-    .container{
-        padding:18px 13px 50px;
-    }
-
-    .hero{
-        padding:25px 20px;
-    }
-
-    .hero-art{
-        display:none;
-    }
-
-    .hero h1{
-        font-size:27px;
-    }
-
-    .subject-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .subject{
-        padding:15px;
-    }
-
-    .subscription{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .section-head{
-        align-items:flex-start;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-<header class="topbar">
-
-    <a href="#" class="brand" onclick="goHome();return false;">
-        <div class="logo">🎓</div>
-        <div class="brand-text">
-            رفيق الطالب
-            <small>أسئلة واختبارات</small>
-        </div>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#" onclick="goHome();return false">
+      <span class="brand-icon">🏆</span>
+      <span>سفراء التفوق<small>طريقك نحو العلامة الكاملة</small></span>
     </a>
 
-    <div class="top-actions">
-        <button class="btn btn-outline" onclick="openSubscribe()">
-            ⭐ الاشتراك
-        </button>
+    <nav class="nav-links">
+      <a href="#subjects">المواد الدراسية</a>
+      <a href="#quick">الأسئلة والاختبارات</a>
+      <a href="#pricing">الاشتراكات</a>
+    </nav>
 
-        <button class="btn btn-primary" onclick="showTests()">
-            📝 اختبر نفسك
-        </button>
+    <div>
+      <button class="btn btn-light subscribe-top" onclick="openSubscribe()">⭐ الاشتراك</button>
+      <button class="btn btn-primary menu-btn" onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">ابدأ الآن ←</button>
     </div>
-
+  </div>
 </header>
 
+<main id="home">
 
-<main class="container">
-
-<!-- HOME -->
-
-<section id="home">
-
-    <div class="hero">
-
-        <div class="hero-content">
-
-            <div class="hero-badge">
-                🎯 مراجعة مركزة للامتحان
-            </div>
-
-            <h1>
-                أهم الأسئلة التي تحتاجها للامتحان
-            </h1>
-
-            <p>
-                لا تضيع وقتك بين الشروحات الطويلة.
-                اختر المادة، راجع أهم الأسئلة، تدرب على اختر الإجابة،
-                ثم اختبر نفسك واحصل على نتيجتك فورًا.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button class="btn btn-white" onclick="scrollToSubjects()">
-                    📚 اختر مادتك
-                </button>
-
-                <button class="btn btn-light" onclick="showTests()">
-                    📝 ابدأ اختبار
-                </button>
-
-            </div>
-
+<section class="hero">
+  <div class="container">
+    <div class="hero-box">
+      <div class="hero-content">
+        <span class="eyebrow">✨ هنا يبدأ طريق التفوق</span>
+        <h1>كن سفيرًا للتفوق<br>واقترب من <span class="gradient-text">العلامة الكاملة</span></h1>
+        <p>راجع أهم الأسئلة، تدرب على الاختيار من متعدد، واختبر مستواك قبل الامتحان من خلال تجربة سهلة وممتعة.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">📚 اختر مادتك</button>
+          <button class="btn btn-outline" onclick="startQuiz('all')">🎯 تحدي الـ100</button>
         </div>
+        <div class="hero-note">💜 راجع بذكاء • تدرب بثقة • تفوّق بجدارة</div>
+      </div>
 
-        <div class="hero-art">
-            📚
+      <div class="hero-art">
+        <div class="book">
+          <div class="book-emoji">🎓</div>
+          <strong>أنا سفير التفوق!</strong>
+          <small>خطوة نحو النجاح</small>
         </div>
-
+        <div class="float-card float-one">✓ تعلم بثقة</div>
+        <div class="float-card float-two">⭐ هدفك العلامة الكاملة</div>
+      </div>
     </div>
+  </div>
+</section>
 
-
+<section class="section">
+  <div class="container">
     <div class="stats">
-
-        <div class="stat">
-            <div class="stat-icon">⭐</div>
-            <strong>أهم</strong>
-            <span>الأسئلة المختارة</span>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">🔥</div>
-            <strong>مهم</strong>
-            <span>أسئلة مركزة</span>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">📝</div>
-            <strong>اختبارات</strong>
-            <span>تدرب واختبر نفسك</span>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">📊</div>
-            <strong>نتيجتك</strong>
-            <span>اعرف مستواك</span>
-        </div>
-
+      <div class="stat">
+        <div class="stat-icon bg-purple">📖</div>
+        <div><strong>مراجعة منظمة</strong><span>أسئلة حسب المواد</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon bg-blue">🎯</div>
+        <div><strong>تدرب بنفسك</strong><span>تعرف على الإجابة الصحيحة</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon bg-green">🏆</div>
+        <div><strong>اكتشف نتيجتك</strong><span>اعرف مستوى أدائك</span></div>
+      </div>
     </div>
+  </div>
+</section>
 
-
-    <div id="subjectsSection">
-
-        <div class="section-head">
-
-            <div>
-                <h2>📚 اختر المادة</h2>
-                <p>ابدأ بالمادة التي تريد مراجعتها</p>
-            </div>
-
-        </div>
-
-
-        <div class="subject-grid">
-
-            <div class="subject" onclick="openSubject('arabic')">
-
-                <div class="subject-icon">📖</div>
-
-                <h3>اللغة العربية</h3>
-
-                <p>أهم الأسئلة والتدريبات</p>
-
-                <div class="subject-arrow">
-                    دخول للمادة ←
-                </div>
-
-            </div>
-
-
-            <div class="subject" onclick="openSubject('math')">
-
-                <div class="subject-icon">📐</div>
-
-                <h3>الرياضيات</h3>
-
-                <p>أسئلة وتمارين واختبارات</p>
-
-                <div class="subject-arrow">
-                    دخول للمادة ←
-                </div>
-
-            </div>
-
-
-            <div class="subject" onclick="openSubject('english')">
-
-                <div class="subject-icon">🔤</div>
-
-                <h3>اللغة الإنجليزية</h3>
-
-                <p>أسئلة اختر ومراجعة</p>
-
-                <div class="subject-arrow">
-                    دخول للمادة ←
-                </div>
-
-            </div>
-
-
-            <div class="subject" onclick="openSubject('science')">
-
-                <div class="subject-icon">🔬</div>
-
-                <h3>العلوم</h3>
-
-                <p>أهم المفاهيم والأسئلة</p>
-
-                <div class="subject-arrow">
-                    دخول للمادة ←
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
+<section class="section" id="subjects">
+  <div class="container">
     <div class="section-head">
-
-        <div>
-            <h2>🎯 ماذا تريد أن تفعل؟</h2>
-            <p>اختر طريقة المراجعة المناسبة لك</p>
-        </div>
-
+      <div>
+        <h2>📚 المواد الدراسية</h2>
+        <p>اختر المادة وابدأ المراجعة</p>
+      </div>
     </div>
+    <div class="subjects" id="subjectGrid"></div>
+  </div>
+</section>
 
+<section class="section" id="quick">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>🚀 اختر طريقة المراجعة</h2>
+        <p>كل خطوة تقرّبك من هدفك</p>
+      </div>
+    </div>
 
     <div class="quick-grid">
-
-        <div class="quick-card" onclick="showImportant()">
-
-            <div class="quick-icon">⭐</div>
-
-            <h3>أهم الأسئلة</h3>
-
-            <p>
-                مجموعة من الأسئلة الأساسية التي يجب على الطالب مراجعتها.
-            </p>
-
-        </div>
-
-
-        <div class="quick-card" onclick="showChoices()">
-
-            <div class="quick-icon">✅</div>
-
-            <h3>اختر الإجابة الصحيحة</h3>
-
-            <p>
-                تدرب على أسئلة الاختيار من متعدد وشاهد الإجابة بعد اختيارك.
-            </p>
-
-        </div>
-
-
-        <div class="quick-card" onclick="showTests()">
-
-            <div class="quick-icon">📝</div>
-
-            <h3>اختبر نفسك</h3>
-
-            <p>
-                اختبارات قصيرة لمعرفة مستواك وقياس تقدمك.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="subscription">
-
+      <div class="quick-card purple">
+        <div class="quick-icon">⭐</div>
         <div>
-
-            <h2>⭐ افتح كامل المحتوى</h2>
-
-            <p>
-                الاشتراك يتيح لك الوصول إلى أهم الأسئلة،
-                الأسئلة المهمة، الاختبارات والمراجعات.
-            </p>
-
+          <h3>أهم الأسئلة</h3>
+          <p>راجع الأسئلة الأساسية مع الإجابات.</p>
+          <button onclick="showImportant()">عرض الأسئلة ←</button>
         </div>
+      </div>
 
+      <div class="quick-card blue">
+        <div class="quick-icon">✅</div>
         <div>
-            <div class="price">50 شيكل</div>
-
-            <button class="btn btn-primary" onclick="openSubscribe()">
-                اشترك الآن
-            </button>
+          <h3>اختر الإجابة الصحيحة</h3>
+          <p>تدرب واكتشف الإجابة الصحيحة.</p>
+          <button onclick="showChoices()">ابدأ التدريب ←</button>
         </div>
+      </div>
 
+      <div class="quick-card green">
+        <div class="quick-icon">🏆</div>
+        <div>
+          <h3>تحدي الـ100</h3>
+          <p>اختبر نفسك وشاهد نتيجتك النهائية.</p>
+          <button onclick="startQuiz('all')">ابدأ التحدي ←</button>
+        </div>
+      </div>
     </div>
-
+  </div>
 </section>
 
-
-<!-- SUBJECT -->
-
-<section id="subjectPage" class="hidden">
-
-    <button class="btn btn-light" onclick="goHome()">
-        ← العودة للرئيسية
-    </button>
-
+<section class="section hidden" id="workspace">
+  <div class="container">
     <div class="section-head">
-
-        <div>
-            <h2 id="subjectTitle">المادة</h2>
-            <p id="subjectDescription"></p>
-        </div>
-
+      <div>
+        <h2 id="workspaceTitle">المراجعة</h2>
+        <p id="workspaceSubtitle">اختر ما تريد مراجعته</p>
+      </div>
+      <button class="btn btn-outline" onclick="hideWorkspace()">✕ إغلاق</button>
     </div>
-
-
-    <div class="quick-grid">
-
-        <div class="quick-card" onclick="showSubjectQuestions()">
-
-            <div class="quick-icon">⭐</div>
-
-            <h3>أهم الأسئلة</h3>
-
-            <p>
-                أهم الأسئلة التي يجب مراجعتها.
-            </p>
-
-        </div>
-
-
-        <div class="quick-card" onclick="showSubjectChoices()">
-
-            <div class="quick-icon">✅</div>
-
-            <h3>اختر الإجابة</h3>
-
-            <p>
-                تدرب على أسئلة الاختيار من متعدد.
-            </p>
-
-        </div>
-
-
-        <div class="quick-card" onclick="startQuiz(currentSubject)">
-
-            <div class="quick-icon">📝</div>
-
-            <h3>اختبار المادة</h3>
-
-            <p>
-                ابدأ اختبارًا واحصل على نتيجتك.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div id="subjectContent" style="margin-top:25px;"></div>
-
+    <div class="panel" id="workspaceContent"></div>
+  </div>
 </section>
 
-
-<!-- TESTS -->
-
-<section id="testsPage" class="hidden">
-
-    <button class="btn btn-light" onclick="goHome()">
-        ← العودة للرئيسية
-    </button>
-
+<section class="section" id="pricing">
+  <div class="container">
     <div class="section-head">
-
-        <div>
-            <h2>📝 اختبر نفسك</h2>
-            <p>اختر المادة وابدأ الاختبار</p>
-        </div>
-
+      <div>
+        <h2>💎 خطط الاشتراك</h2>
+        <p>خطط للوصول إلى المزيد من الأسئلة والاختبارات</p>
+      </div>
     </div>
 
+    <div class="pricing">
+      <div class="price-card">
+        <span class="tag">للبداية</span>
+        <h3>الخطة المجانية</h3>
+        <div class="price">مجانًا</div>
+        <ul>
+          <li>تجربة نماذج من الأسئلة</li>
+          <li>تجربة الاختبارات المتاحة</li>
+          <li>معرفة نتيجة الاختبار</li>
+        </ul>
+        <button class="btn btn-light" onclick="goHome()">ابدأ مجانًا</button>
+      </div>
 
-    <div class="subject-grid">
+      <div class="price-card featured">
+        <span class="popular">⭐ الخطة المقترحة</span>
+        <h3>الاشتراك الشهري</h3>
+        <div class="price">يُحدد لاحقًا <small>/ شهريًا</small></div>
+        <ul>
+          <li>محتوى مدفوع عند تفعيل النظام</li>
+          <li>أسئلة واختبارات إضافية</li>
+          <li>مراجعة حسب المواد المتاحة</li>
+        </ul>
+        <button class="btn btn-primary" onclick="openSubscribe()">استفسر عن الاشتراك</button>
+      </div>
 
-        <div class="subject" onclick="startQuiz('arabic')">
-            <div class="subject-icon">📖</div>
-            <h3>اختبار اللغة العربية</h3>
-            <p>أسئلة متنوعة</p>
-            <div class="subject-arrow">ابدأ الاختبار ←</div>
-        </div>
-
-        <div class="subject" onclick="startQuiz('math')">
-            <div class="subject-icon">📐</div>
-            <h3>اختبار الرياضيات</h3>
-            <p>أسئلة متنوعة</p>
-            <div class="subject-arrow">ابدأ الاختبار ←</div>
-        </div>
-
-        <div class="subject" onclick="startQuiz('english')">
-            <div class="subject-icon">🔤</div>
-            <h3>اختبار الإنجليزية</h3>
-            <p>أسئلة متنوعة</p>
-            <div class="subject-arrow">ابدأ الاختبار ←</div>
-        </div>
-
-        <div class="subject" onclick="startQuiz('science')">
-            <div class="subject-icon">🔬</div>
-            <h3>اختبار العلوم</h3>
-            <p>أسئلة متنوعة</p>
-            <div class="subject-arrow">ابدأ الاختبار ←</div>
-        </div>
-
+      <div class="price-card">
+        <span class="tag" style="background:#e5f9f0;color:#17815f">خطة مستقبلية</span>
+        <h3>الاشتراك السنوي</h3>
+        <div class="price">يُحدد لاحقًا <small>/ سنويًا</small></div>
+        <ul>
+          <li>مدة اشتراك أطول</li>
+          <li>محتوى إضافي عند تفعيله</li>
+          <li>الاستفادة من التحديثات المتاحة</li>
+        </ul>
+        <button class="btn btn-green" onclick="openSubscribe()">استفسر عن الاشتراك</button>
+      </div>
     </div>
 
+    <div class="subscription-note">
+      ℹ️ هذه نسخة تجريبية. الأسعار والدفع وتفعيل الاشتراكات وحماية المحتوى غير مفعّلة بعد. لا يوجد دفع حقيقي عبر هذه الصفحة.
+    </div>
+  </div>
 </section>
-
-
-<!-- QUIZ -->
-
-<section id="quizPage" class="hidden">
-
-    <div class="panel">
-
-        <div class="test-header">
-
-            <div>
-                <button class="btn btn-light" onclick="showTests()">
-                    ← إنهاء الاختبار
-                </button>
-            </div>
-
-            <div class="test-info">
-                <span class="pill" id="quizSubject">المادة</span>
-                <span class="pill">
-                    السؤال <span id="quizNumber">1</span>/<span id="quizTotal">5</span>
-                </span>
-            </div>
-
-        </div>
-
-
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-
-
-        <div id="quizBox"></div>
-
-    </div>
-
-</section>
-
-
-<!-- RESULT -->
-
-<section id="resultPage" class="hidden">
-
-    <div class="panel result">
-
-        <div class="result-circle">
-            <strong id="resultPercent">0%</strong>
-        </div>
-
-        <h2 id="resultTitle">
-            انتهى الاختبار 🎉
-        </h2>
-
-        <p id="resultText"></p>
-
-        <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-
-            <button class="btn btn-primary" onclick="retryQuiz()">
-                🔄 إعادة الاختبار
-            </button>
-
-            <button class="btn btn-light" onclick="showTests()">
-                📝 اختبارات أخرى
-            </button>
-
-            <button class="btn btn-outline" onclick="goHome()">
-                🏠 الرئيسية
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
 
 </main>
 
-
-<footer>
-
-    <strong>رفيق الطالب</strong>
-
-    <br>
-
-    أهم الأسئلة، اختر الإجابة، واختبر نفسك.
-
-    <br><br>
-
-    © 2026 رفيق الطالب — جميع الحقوق محفوظة
-
+<footer class="footer">
+  <div class="container footer-inner">
+    <a class="brand" href="#" onclick="goHome();return false">
+      <span class="brand-icon">🏆</span>
+      <span>سفراء التفوق<small>طريقك نحو العلامة الكاملة</small></span>
+    </a>
+    <p>© <span id="year"></span> سفراء التفوق — راجع بذكاء وتفوّق بجدارة.</p>
+  </div>
 </footer>
 
+<div class="modal" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="إغلاق" onclick="closeSubscribe()">×</button>
+    <h2 id="modalTitle">💜 استفسار عن الاشتراك</h2>
+    <p>اكتب بياناتك لتجهيز رسالة استفسار يمكنك نسخها وإرسالها بنفسك.</p>
+    <label for="studentName">اسمك</label>
+    <input id="studentName" type="text" placeholder="اكتب اسمك">
+    <label for="studentContact">وسيلة التواصل (اختياري)</label>
+    <input id="studentContact" type="text" placeholder="رقم الهاتف أو البريد الإلكتروني">
+    <button class="btn btn-primary" onclick="sendSubscriptionInquiry()">تجهيز رسالة الاستفسار</button>
+    <div id="modalMessage" aria-live="polite"></div>
+    <textarea id="messageOutput" class="hidden" rows="5" style="width:100%;margin-top:10px;border:1px solid #ebeaf4;border-radius:10px;padding:10px"></textarea>
+    <button id="copyMessageBtn" class="btn btn-outline hidden" onclick="copyInquiry()">📋 نسخ الرسالة</button>
+  </div>
 </div>
 
-
-<!-- SUBSCRIBE MODAL -->
-
-<div class="modal" id="subscribeModal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-
-            <h2>⭐ اشتراك رفيق الطالب</h2>
-
-            <button class="close" onclick="closeSubscribe()">×</button>
-
-        </div>
-
-        <div class="subscribe-info">
-
-            اشتراك الموسم الدراسي: <strong>50 شيكل</strong>
-
-            <br>
-
-            يفتح أهم الأسئلة والاختبارات والمحتوى المميز.
-
-        </div>
-
-        <p style="color:var(--muted);font-size:13px;line-height:1.8;">
-
-            في هذه النسخة التجريبية يمكنك استخدام رمز تفعيل تجريبي.
-            لاحقًا يمكن ربط هذه الصفحة بنظام دفع وتفعيل حقيقي.
-
-        </p>
-
-        <input
-            class="input"
-            id="activationCode"
-            placeholder="أدخل رمز التفعيل"
-        >
-
-        <button class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="activate()">
-            تفعيل الاشتراك
-        </button>
-
-        <button class="btn btn-outline" style="width:100%;margin-top:8px;" onclick="closeSubscribe()">
-            إغلاق
-        </button>
-
-        <div id="activationMessage" style="margin-top:12px;text-align:center;font-size:13px;"></div>
-
-    </div>
-
-</div>
-
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
+"use strict";
 
-/* =========================
-   DATA
-========================= */
+/*
+  سفراء التفوق: نموذج أولي.
+  الأسئلة الحالية أمثلة توضيحية وليست أسئلة رسمية لمنهج محدد.
+*/
 
-const subjects = {
+const subjects = [
+  {id:"arabic",name:"اللغة العربية",icon:"📚",color:"purple",description:"اللغة والقواعد والفهم"},
+  {id:"math",name:"الرياضيات",icon:"📐",color:"blue",description:"تدرب على المسائل"},
+  {id:"english",name:"اللغة الإنجليزية",icon:"🔤",color:"pink",description:"مفردات وقواعد أساسية"},
+  {id:"science",name:"العلوم",icon:"🔬",color:"green",description:"مفاهيم ومعلومات علمية"}
+];
 
-    arabic:{
-        title:"اللغة العربية",
-        description:"أهم الأسئلة والمراجعة السريعة في اللغة العربية",
+const questionBank = [
+  {id:1,subject:"arabic",type:"important",question:"ما نوع الكلمة «مدرسة»؟",answer:"اسم؛ لأنها تدل على مكان."},
+  {id:2,subject:"arabic",type:"choice",question:"أي الكلمات التالية فعل؟",options:["قلم","يكتب","مدرسة","جميل"],correct:1,answer:"يكتب؛ لأنه يدل على حدث مرتبط بزمن."},
+  {id:3,subject:"arabic",type:"choice",question:"ما جمع كلمة «كتاب»؟",options:["كاتب","مكتبة","كتب","كتابة"],correct:2,answer:"كتب."},
 
-        questions:[
-            {
-                important:true,
-                q:"ما نوع كلمة «كتاب» في الجملة: قرأتُ كتابًا مفيدًا؟",
-                a:"اسم."
-            },
-            {
-                important:true,
-                q:"ما هو الفعل الماضي؟",
-                a:"فعل يدل على حدث وقع وانتهى في الزمن الماضي."
-            },
-            {
-                important:false,
-                q:"ما المقصود بالفاعل؟",
-                a:"اسم مرفوع يدل على من قام بالفعل."
-            }
-        ],
+  {id:4,subject:"math",type:"important",question:"ما ناتج 7 × 8؟",answer:"56."},
+  {id:5,subject:"math",type:"choice",question:"ما ناتج 15 + 27؟",options:["32","40","42","45"],correct:2,answer:"42."},
+  {id:6,subject:"math",type:"choice",question:"ما ناتج 9 × 6؟",options:["45","54","56","63"],correct:1,answer:"54."},
 
-        choices:[
-            {
-                q:"أي الكلمات الآتية اسم؟",
-                options:["كتب","كتاب","اكتب","يكتب"],
-                answer:1
-            },
-            {
-                q:"أي الجمل الآتية جملة اسمية؟",
-                options:[
-                    "ذهب الطالب إلى المدرسة.",
-                    "يقرأ الطالب الكتاب.",
-                    "الطالبُ مجتهدٌ.",
-                    "اكتب واجبك."
-                ],
-                answer:2
-            },
-            {
-                q:"ما علامة رفع المبتدأ الأصلية؟",
-                options:["الفتحة","الضمة","الكسرة","السكون"],
-                answer:1
-            }
-        ]
-    },
+  {id:7,subject:"english",type:"important",question:"ماذا تعني كلمة Apple باللغة العربية؟",answer:"تفاحة."},
+  {id:8,subject:"english",type:"choice",question:"اختر الكلمة الإنجليزية التي تعني «كتاب».",options:["Pen","Book","Door","Chair"],correct:1,answer:"Book تعني كتاب."},
+  {id:9,subject:"english",type:"choice",question:"أكمل: I ___ a student.",options:["am","are","is","be"],correct:0,answer:"am؛ لأن الضمير I يأتي معه am."},
 
+  {id:10,subject:"science",type:"important",question:"ما الكوكب الذي نعيش عليه؟",answer:"كوكب الأرض."},
+  {id:11,subject:"science",type:"choice",question:"ما المصدر الأساسي للضوء والحرارة على الأرض؟",options:["القمر","الشمس","الماء","التربة"],correct:1,answer:"الشمس."},
+  {id:12,subject:"science",type:"choice",question:"أي جزء من النبات يمتص الماء من التربة؟",options:["الأزهار","الأوراق","الجذور","الثمار"],correct:2,answer:"الجذور."}
+];
 
-    math:{
-        title:"الرياضيات",
-        description:"أسئلة وتدريبات رياضية للمراجعة والاختبار",
+let currentQuiz=[];
+let currentIndex=0;
+let quizScore=0;
+let quizAnswered=false;
+let currentSubject="all";
+let currentFilter="all";
+let toastTimer=null;
 
-        questions:[
-            {
-                important:true,
-                q:"ما ناتج 7 × 8؟",
-                a:"56."
-            },
-            {
-                important:true,
-                q:"ما ناتج 100 ÷ 4؟",
-                a:"25."
-            },
-            {
-                important:false,
-                q:"إذا كان س = 5، فما قيمة 2س + 3؟",
-                a:"13."
-            }
-        ],
+document.getElementById("year").textContent=new Date().getFullYear();
 
-        choices:[
-            {
-                q:"ما ناتج 12 + 8؟",
-                options:["18","20","22","24"],
-                answer:1
-            },
-            {
-                q:"ما ناتج 9 × 6؟",
-                options:["45","48","54","56"],
-                answer:2
-            },
-            {
-                q:"إذا كان س = 4، فما قيمة س + 6؟",
-                options:["8","9","10","12"],
-                answer:2
-            }
-        ]
-    },
-
-
-    english:{
-        title:"اللغة الإنجليزية",
-        description:"أسئلة اختيار ومراجعة في اللغة الإنجليزية",
-
-        questions:[
-            {
-                important:true,
-                q:"ما معنى كلمة Book؟",
-                a:"كتاب."
-            },
-            {
-                important:true,
-                q:"ما الماضي من الفعل go؟",
-                a:"Went."
-            },
-            {
-                important:false,
-                q:"ما الضمير المستخدم مع He؟",
-                a:"ضمير المفرد الغائب للمذكر."
-            }
-        ],
-
-        choices:[
-            {
-                q:"Choose the correct answer: She ___ a student.",
-                options:["am","is","are","be"],
-                answer:1
-            },
-            {
-                q:"What is the opposite of Big?",
-                options:["Tall","Small","Long","Fast"],
-                answer:1
-            },
-            {
-                q:"Choose the past of Go.",
-                options:["Goed","Gone","Went","Going"],
-                answer:2
-            }
-        ]
-    },
-
-
-    science:{
-        title:"العلوم",
-        description:"أهم المفاهيم والأسئلة العلمية",
-
-        questions:[
-            {
-                important:true,
-                q:"ما المصدر الأساسي للطاقة على سطح الأرض؟",
-                a:"الشمس."
-            },
-            {
-                important:true,
-                q:"ما الغاز الذي يحتاجه الإنسان للتنفس؟",
-                a:"الأكسجين."
-            },
-            {
-                important:false,
-                q:"ما الكوكب المعروف بالكوكب الأحمر؟",
-                a:"المريخ."
-            }
-        ],
-
-        choices:[
-            {
-                q:"ما الكوكب المعروف بالكوكب الأحمر؟",
-                options:["الأرض","المريخ","الزهرة","المشتري"],
-                answer:1
-            },
-            {
-                q:"ما الغاز الضروري لعملية التنفس عند الإنسان؟",
-                options:["الأكسجين","النيتروجين","الهيدروجين","ثاني أكسيد الكربون"],
-                answer:0
-            },
-            {
-                q:"ما المصدر الأساسي للطاقة على الأرض؟",
-                options:["القمر","الرياح","الشمس","الماء"],
-                answer:2
-            }
-        ]
-    }
-
-};
-
-
-/* =========================
-   STATE
-========================= */
-
-let currentSubject = null;
-
-let quizQuestions = [];
-
-let quizIndex = 0;
-
-let quizScore = 0;
-
-let selectedAnswer = null;
-
-let lastQuizSubject = null;
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-function hideAll(){
-
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("subjectPage").classList.add("hidden");
-    document.getElementById("testsPage").classList.add("hidden");
-    document.getElementById("quizPage").classList.add("hidden");
-    document.getElementById("resultPage").classList.add("hidden");
-
+function renderSubjects(){
+  document.getElementById("subjectGrid").innerHTML=subjects.map(s=>{
+    const count=questionBank.filter(q=>q.subject===s.id).length;
+    return `
+      <button class="subject-card" onclick="openSubject('${s.id}')">
+        <div class="subject-icon bg-${s.color}">${s.icon}</div>
+        <h3>${s.name}</h3>
+        <p>${s.description}</p>
+        <div class="subject-bottom">
+          <span>${count} أسئلة تجريبية</span>
+          <span class="arrow-circle">←</span>
+        </div>
+      </button>`;
+  }).join("");
 }
 
 function goHome(){
-
-    hideAll();
-
-    document.getElementById("home").classList.remove("hidden");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+  hideWorkspace();
+  document.getElementById("home").scrollIntoView({behavior:"smooth"});
 }
 
-function scrollToSubjects(){
-
-    document.getElementById("subjectsSection").scrollIntoView({
-        behavior:"smooth"
-    });
-
+function showWorkspace(title,subtitle,html){
+  document.getElementById("workspaceTitle").textContent=title;
+  document.getElementById("workspaceSubtitle").textContent=subtitle;
+  document.getElementById("workspaceContent").innerHTML=html;
+  document.getElementById("workspace").classList.remove("hidden");
+  document.getElementById("workspace").scrollIntoView({behavior:"smooth"});
 }
 
-function showTests(){
-
-    hideAll();
-
-    document.getElementById("testsPage").classList.remove("hidden");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+function hideWorkspace(){
+  document.getElementById("workspace").classList.add("hidden");
 }
 
-function openSubject(subject){
-
-    currentSubject = subject;
-
-    const data = subjects[subject];
-
-    hideAll();
-
-    document.getElementById("subjectPage").classList.remove("hidden");
-
-    document.getElementById("subjectTitle").textContent =
-        "📚 " + data.title;
-
-    document.getElementById("subjectDescription").textContent =
-        data.description;
-
-    document.getElementById("subjectContent").innerHTML = "";
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+function subjectName(id){
+  const subject=subjects.find(s=>s.id===id);
+  return subject?subject.name:"جميع المواد";
 }
 
+function openSubject(id){
+  currentSubject=id;
+  currentFilter="all";
+  renderSubjectWorkspace();
+}
 
-/* =========================
-   QUESTIONS
-========================= */
+function renderSubjectWorkspace(){
+  const questions=questionBank.filter(q=>
+    q.subject===currentSubject &&
+    (currentFilter==="all" || q.type===currentFilter)
+  );
+
+  const filters=`
+    <div class="toolbar">
+      <button class="filter-btn ${currentFilter==="all"?"active":""}" onclick="setFilter('all')">الكل</button>
+      <button class="filter-btn ${currentFilter==="important"?"active":""}" onclick="setFilter('important')">⭐ أهم الأسئلة</button>
+      <button class="filter-btn ${currentFilter==="choice"?"active":""}" onclick="setFilter('choice')">✅ اختر الإجابة</button>
+      <button class="btn btn-primary" onclick="startQuiz('${currentSubject}')">🏆 اختبر نفسك</button>
+    </div>`;
+
+  const cards=questions.map(q=>{
+    if(q.type==="important"){
+      return `
+        <div class="question-card">
+          <div class="question-top"><h3>⭐ ${q.question}</h3><span class="tag">مهم</span></div>
+          <div class="answer">الإجابة: ${q.answer}</div>
+        </div>`;
+    }
+    return `
+      <div class="question-card">
+        <div class="question-top"><h3>${q.question}</h3><span class="tag">تدريب</span></div>
+        <div class="choice-list">
+          ${q.options.map((option,i)=>`<button class="choice" onclick="checkChoice(this,${q.id},${i})">${option}</button>`).join("")}
+        </div>
+        <div id="feedback-${q.id}" class="feedback" aria-live="polite"></div>
+      </div>`;
+  }).join("");
+
+  showWorkspace(subjectName(currentSubject),"أسئلة تجريبية للمراجعة والتدريب",
+    filters+(cards||'<div class="empty">لا توجد أسئلة في هذا القسم حاليًا.</div>'));
+}
+
+function setFilter(filter){
+  currentFilter=filter;
+  renderSubjectWorkspace();
+}
+
+function checkChoice(button,questionId,index){
+  const q=questionBank.find(item=>item.id===questionId);
+  if(!q)return;
+
+  const parent=button.parentElement;
+  if(parent.dataset.answered==="true")return;
+  parent.dataset.answered="true";
+
+  [...parent.querySelectorAll("button")].forEach((b,i)=>{
+    b.disabled=true;
+    if(i===q.correct)b.classList.add("correct");
+  });
+
+  const feedback=document.getElementById("feedback-"+questionId);
+  if(index===q.correct){
+    feedback.textContent="✓ إجابة صحيحة! "+q.answer;
+    feedback.style.color="#168763";
+  }else{
+    button.classList.add("wrong");
+    feedback.textContent="الإجابة الصحيحة: "+q.options[q.correct]+". "+q.answer;
+    feedback.style.color="#b73558";
+  }
+}
 
 function showImportant(){
+  currentSubject="all";
+  const questions=questionBank.filter(q=>q.type==="important");
+  const html=questions.map(q=>`
+    <div class="question-card">
+      <div class="question-top"><h3>⭐ ${subjectName(q.subject)}: ${q.question}</h3><span class="tag">مراجعة</span></div>
+      <div class="answer">الإجابة: ${q.answer}</div>
+    </div>`).join("");
 
-    hideAll();
-
-    const page = document.getElementById("subjectPage");
-
-    page.classList.remove("hidden");
-
-    currentSubject = "arabic";
-
-    renderAllImportant();
-
-    document.getElementById("subjectTitle").textContent =
-        "⭐ أهم الأسئلة";
-
-    document.getElementById("subjectDescription").textContent =
-        "أسئلة مختارة للمراجعة السريعة";
-
-    window.scrollTo({top:0,behavior:"smooth"});
-
+  showWorkspace("⭐ أهم الأسئلة","أمثلة تجريبية من المواد المتاحة",html);
 }
-
-
-function renderAllImportant(){
-
-    let html = `
-        <div class="panel">
-            <div class="section-head" style="margin-top:0">
-                <div>
-                    <h2>⭐ أهم الأسئلة</h2>
-                    <p>راجع هذه الأسئلة قبل الامتحان</p>
-                </div>
-            </div>
-    `;
-
-    Object.keys(subjects).forEach(key=>{
-
-        const data = subjects[key];
-
-        html += `
-            <h3 style="margin-top:25px;">
-                ${data.title}
-            </h3>
-        `;
-
-        data.questions.forEach((item,index)=>{
-
-            if(!item.important) return;
-
-            html += `
-                <div class="question-card important">
-
-                    <div class="question-top">
-
-                        <span class="question-number">
-                            ${index+1}
-                        </span>
-
-                        <span class="badge-important">
-                            🔥 مهم جدًا
-                        </span>
-
-                    </div>
-
-                    <div class="question-text">
-                        ${item.q}
-                    </div>
-
-                    <div class="answer-box">
-
-                        <div class="answer-label">
-                            الإجابة
-                        </div>
-
-                        ${item.a}
-
-                    </div>
-
-                </div>
-            `;
-
-        });
-
-    });
-
-    html += `</div>`;
-
-    document.getElementById("subjectContent").innerHTML = html;
-
-}
-
-
-function showSubjectQuestions(){
-
-    if(!currentSubject) return;
-
-    const data = subjects[currentSubject];
-
-    let html = `
-        <div class="panel">
-
-            <div class="section-head" style="margin-top:0">
-
-                <div>
-                    <h2>⭐ أهم أسئلة ${data.title}</h2>
-                    <p>أسئلة يجب مراجعتها</p>
-                </div>
-
-            </div>
-    `;
-
-    data.questions.forEach((item,index)=>{
-
-        html += `
-            <div class="question-card ${item.important ? "important":""}">
-
-                <div class="question-top">
-
-                    <span class="question-number">
-                        سؤال ${index+1}
-                    </span>
-
-                    ${
-                        item.important
-                        ? `<span class="badge-important">🔥 مهم</span>`
-                        : ""
-                    }
-
-                </div>
-
-                <div class="question-text">
-                    ${item.q}
-                </div>
-
-                <div class="answer-box">
-
-                    <div class="answer-label">
-                        الإجابة
-                    </div>
-
-                    ${item.a}
-
-                </div>
-
-            </div>
-        `;
-
-    });
-
-    html += `</div>`;
-
-    document.getElementById("subjectContent").innerHTML = html;
-
-}
-
 
 function showChoices(){
+  currentSubject="all";
+  const questions=questionBank.filter(q=>q.type==="choice");
+  const html=questions.map(q=>`
+    <div class="question-card">
+      <div class="question-top"><h3>${subjectName(q.subject)}: ${q.question}</h3><span class="tag">تدريب</span></div>
+      <div class="choice-list">
+        ${q.options.map((option,i)=>`<button class="choice" onclick="checkChoice(this,${q.id},${i})">${option}</button>`).join("")}
+      </div>
+      <div id="feedback-${q.id}" class="feedback" aria-live="polite"></div>
+    </div>`).join("");
 
-    hideAll();
-
-    document.getElementById("subjectPage").classList.remove("hidden");
-
-    currentSubject = "arabic";
-
-    showSubjectChoices();
-
-    document.getElementById("subjectTitle").textContent =
-        "✅ اختر الإجابة الصحيحة";
-
-    document.getElementById("subjectDescription").textContent =
-        "تدرب على أسئلة الاختيار من متعدد";
-
+  showWorkspace("✅ اختر الإجابة الصحيحة","تدرب على الأسئلة واكتشف الإجابات",html);
 }
-
-
-function showSubjectChoices(){
-
-    if(!currentSubject) return;
-
-    const data = subjects[currentSubject];
-
-    let html = `
-        <div class="panel">
-
-            <div class="section-head" style="margin-top:0">
-
-                <div>
-                    <h2>✅ اختر الإجابة الصحيحة</h2>
-                    <p>${data.title}</p>
-                </div>
-
-            </div>
-    `;
-
-    data.choices.forEach((item,index)=>{
-
-        html += `
-            <div class="question-card">
-
-                <div class="question-number">
-                    سؤال ${index+1}
-                </div>
-
-                <div class="question-text">
-                    ${item.q}
-                </div>
-
-                <div>
-        `;
-
-        item.options.forEach((option,optIndex)=>{
-
-            html += `
-                <button
-                    class="choice-option"
-                    onclick="checkChoice(this, ${optIndex}, ${item.answer})">
-
-                    ${option}
-
-                </button>
-            `;
-
-        });
-
-        html += `
-                </div>
-
-            </div>
-        `;
-
-    });
-
-    html += `</div>`;
-
-    document.getElementById("subjectContent").innerHTML = html;
-
-}
-
-
-function checkChoice(button,index,correct){
-
-    const buttons =
-        button.parentElement.querySelectorAll(".choice-option");
-
-    buttons.forEach(btn=>{
-        btn.disabled = true;
-    });
-
-    if(index === correct){
-
-        button.classList.add("correct");
-
-    }else{
-
-        button.classList.add("wrong");
-
-        buttons[correct].classList.add("correct");
-
-    }
-
-}
-
-
-/* =========================
-   QUIZ
-========================= */
 
 function startQuiz(subject){
+  currentSubject=subject;
+  currentQuiz=questionBank.filter(q=>q.type==="choice"&&(subject==="all"||q.subject===subject));
 
-    currentSubject = subject;
+  if(!currentQuiz.length){
+    showToast("لا توجد أسئلة اختبار متاحة لهذه المادة حاليًا.");
+    return;
+  }
 
-    lastQuizSubject = subject;
-
-    const data = subjects[subject];
-
-    quizQuestions = data.choices.map(q=>({
-
-        question:q.q,
-        options:q.options,
-        answer:q.answer
-
-    }));
-
-    quizIndex = 0;
-
-    quizScore = 0;
-
-    selectedAnswer = null;
-
-    hideAll();
-
-    document.getElementById("quizPage").classList.remove("hidden");
-
-    document.getElementById("quizSubject").textContent =
-        data.title;
-
-    document.getElementById("quizTotal").textContent =
-        quizQuestions.length;
-
-    renderQuiz();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+  currentIndex=0;
+  quizScore=0;
+  quizAnswered=false;
+  renderQuiz();
 }
-
 
 function renderQuiz(){
+  const q=currentQuiz[currentIndex];
+  if(!q)return;
 
-    const q = quizQuestions[quizIndex];
+  const progress=Math.round(currentIndex/currentQuiz.length*100);
 
-    document.getElementById("quizNumber").textContent =
-        quizIndex + 1;
+  const html=`
+    <div class="quiz-box">
+      <div class="quiz-meta"><span>${subjectName(q.subject)}</span><span>السؤال ${currentIndex+1} من ${currentQuiz.length}</span></div>
+      <div class="quiz-progress"><div style="width:${progress}%"></div></div>
+      <h3 class="quiz-question">${q.question}</h3>
+      <div class="quiz-options">
+        ${q.options.map((option,i)=>`<button class="quiz-option" onclick="selectQuizAnswer(${i})" ${quizAnswered?"disabled":""}>${option}</button>`).join("")}
+      </div>
+      <div id="quizFeedback" class="feedback" aria-live="polite"></div>
+      <div class="quiz-controls">
+        <button class="btn btn-outline" onclick="hideWorkspace()">إنهاء الاختبار</button>
+        <button id="nextQuizButton" class="btn btn-primary" onclick="nextQuiz()" ${quizAnswered?"":"disabled"}>
+          ${currentIndex===currentQuiz.length-1?"عرض النتيجة":"السؤال التالي ←"}
+        </button>
+      </div>
+    </div>`;
 
-    const progress =
-        ((quizIndex) / quizQuestions.length) * 100;
-
-    document.getElementById("progressBar").style.width =
-        progress + "%";
-
-    selectedAnswer = null;
-
-    let html = `
-
-        <div class="test-question">
-            ${q.question}
-        </div>
-
-        <div id="quizOptions">
-    `;
-
-    q.options.forEach((option,index)=>{
-
-        html += `
-            <button
-                class="test-option"
-                onclick="selectQuizAnswer(${index})">
-
-                ${option}
-
-            </button>
-        `;
-
-    });
-
-    html += `
-
-        </div>
-
-        <div class="test-actions">
-
-            <button
-                class="btn btn-outline"
-                onclick="finishQuiz()">
-
-                إنهاء الاختبار
-
-            </button>
-
-            <button
-                id="nextQuizButton"
-                class="btn btn-primary"
-                onclick="nextQuiz()"
-                disabled>
-
-                ${quizIndex === quizQuestions.length-1
-                    ? "إنهاء الاختبار"
-                    : "السؤال التالي ←"}
-
-            </button>
-
-        </div>
-    `;
-
-    document.getElementById("quizBox").innerHTML = html;
-
+  showWorkspace("🏆 تحدي الـ100","أجب عن الأسئلة لمعرفة نتيجتك",html);
 }
-
 
 function selectQuizAnswer(index){
+  if(quizAnswered)return;
+  quizAnswered=true;
 
-    selectedAnswer = index;
+  const q=currentQuiz[currentIndex];
+  const buttons=document.querySelectorAll(".quiz-option");
 
-    const options =
-        document.querySelectorAll(".test-option");
+  buttons.forEach((button,i)=>{
+    button.disabled=true;
+    if(i===q.correct)button.classList.add("selected");
+  });
 
-    options.forEach((btn,i)=>{
+  const feedback=document.getElementById("quizFeedback");
+  if(index===q.correct){
+    quizScore++;
+    feedback.textContent="✓ إجابة صحيحة! أحسنت.";
+    feedback.style.color="#168763";
+  }else{
+    feedback.textContent="الإجابة الصحيحة: "+q.options[q.correct];
+    feedback.style.color="#bd4563";
+  }
 
-        btn.classList.toggle(
-            "selected",
-            i === index
-        );
-
-    });
-
-    document.getElementById("nextQuizButton").disabled =
-        false;
-
+  document.getElementById("nextQuizButton").disabled=false;
 }
-
 
 function nextQuiz(){
+  if(!quizAnswered)return;
+  currentIndex++;
+  quizAnswered=false;
 
-    if(selectedAnswer === null) return;
-
-    const correct =
-        quizQuestions[quizIndex].answer;
-
-    if(selectedAnswer === correct){
-
-        quizScore++;
-
-    }
-
-    if(quizIndex === quizQuestions.length-1){
-
-        finishQuiz();
-
-        return;
-
-    }
-
-    quizIndex++;
-
+  if(currentIndex>=currentQuiz.length){
+    finishQuiz();
+  }else{
     renderQuiz();
-
+  }
 }
-
 
 function finishQuiz(){
+  const total=currentQuiz.length;
+  const percentage=Math.round(quizScore/total*100);
+  let emoji="💪";
+  let message="واصل التدريب، أنت تتحسن!";
 
-    if(
-        selectedAnswer !== null &&
-        quizIndex < quizQuestions.length
-    ){
+  if(percentage>=85){emoji="🏆";message="ممتاز! أداء رائع يا سفير التفوق."}
+  else if(percentage>=60){emoji="🌟";message="جيد جدًا، راجع أخطاءك لتتقدم."}
 
-        if(
-            selectedAnswer ===
-            quizQuestions[quizIndex].answer
-        ){
-
-            quizScore++;
-
-        }
-
-    }
-
-    const total = quizQuestions.length;
-
-    const percent =
-        Math.round((quizScore / total) * 100);
-
-    document.getElementById("resultPercent").textContent =
-        percent + "%";
-
-    document.getElementById("resultText").textContent =
-        `أجبت بشكل صحيح عن ${quizScore} من ${total} أسئلة.`;
-
-    let title = "حاول مرة أخرى 💪";
-
-    if(percent >= 80){
-
-        title = "ممتاز جدًا! 🎉";
-
-    }else if(percent >= 60){
-
-        title = "جيد جدًا! 👏";
-
-    }else if(percent >= 40){
-
-        title = "بداية جيدة 👍";
-
-    }
-
-    document.getElementById("resultTitle").textContent =
-        title;
-
-    hideAll();
-
-    document.getElementById("resultPage").classList.remove("hidden");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
+  showWorkspace("🎉 نتيجتك النهائية","انتهى الاختبار التجريبي",`
+    <div class="result">
+      <div class="result-emoji">${emoji}</div>
+      <h2>${message}</h2>
+      <p class="muted">هذه نتيجة الاختبار الذي أكملته الآن.</p>
+      <div class="score-circle">${percentage}%</div>
+      <h3>أجبت عن ${quizScore} من ${total} أسئلة بشكل صحيح</h3>
+      <button class="btn btn-primary" onclick="retryQuiz()">🔄 أعد الاختبار</button>
+      <button class="btn btn-outline" onclick="goHome()">العودة للرئيسية</button>
+    </div>`);
 }
-
 
 function retryQuiz(){
-
-    startQuiz(lastQuizSubject);
-
+  startQuiz(currentSubject);
 }
-
-
-/* =========================
-   SUBSCRIPTION
-========================= */
 
 function openSubscribe(){
-
-    document
-        .getElementById("subscribeModal")
-        .classList.add("active");
-
+  document.getElementById("modalMessage").textContent="";
+  document.getElementById("messageOutput").classList.add("hidden");
+  document.getElementById("copyMessageBtn").classList.add("hidden");
+  document.getElementById("subscribeModal").classList.add("show");
 }
-
 
 function closeSubscribe(){
-
-    document
-        .getElementById("subscribeModal")
-        .classList.remove("active");
-
+  document.getElementById("subscribeModal").classList.remove("show");
 }
 
+function sendSubscriptionInquiry(){
+  const name=document.getElementById("studentName").value.trim();
+  const contact=document.getElementById("studentContact").value.trim();
+  const msg=document.getElementById("modalMessage");
 
-function activate(){
+  if(!name){
+    msg.textContent="يرجى كتابة اسمك أولًا.";
+    msg.style.color="#bd4563";
+    return;
+  }
 
-    const code =
-        document
-            .getElementById("activationCode")
-            .value
-            .trim();
+  const message=
+    "استفسار عن الاشتراك في سفراء التفوق\n"+
+    "الاسم: "+name+"\n"+
+    "وسيلة التواصل: "+(contact||"لم تُذكر")+"\n"+
+    "أرغب بمعرفة تفاصيل الاشتراك عند توفره.";
 
-    const message =
-        document.getElementById("activationMessage");
-
-    /*
-       رمز تجريبي فقط.
-       غيّره لاحقًا عندما تربط نظام الاشتراك الحقيقي.
-    */
-
-    if(code === "RAFQ50"){
-
-        localStorage.setItem(
-            "rafiq_student_active",
-            "true"
-        );
-
-        message.style.color =
-            "#138a62";
-
-        message.textContent =
-            "تم تفعيل الاشتراك بنجاح 🎉";
-
-        setTimeout(()=>{
-
-            closeSubscribe();
-
-        },1200);
-
-    }else{
-
-        message.style.color =
-            "#dc3545";
-
-        message.textContent =
-            "رمز التفعيل غير صحيح.";
-
-    }
-
+  document.getElementById("messageOutput").value=message;
+  document.getElementById("messageOutput").classList.remove("hidden");
+  document.getElementById("copyMessageBtn").classList.remove("hidden");
+  msg.textContent="جهزنا الرسالة. يمكنك نسخها وإرسالها بنفسك.";
+  msg.style.color="#168763";
 }
 
+async function copyInquiry(){
+  const text=document.getElementById("messageOutput").value;
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("تم نسخ الرسالة.");
+  }catch(error){
+    const area=document.getElementById("messageOutput");
+    area.classList.remove("hidden");
+    area.focus();
+    area.select();
+    showToast("حدد النص وانسخه يدويًا.");
+  }
+}
 
-/* =========================
-   START
-========================= */
+function showToast(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove("show"),3000);
+}
 
-document.addEventListener("DOMContentLoaded",()=>{
-
-    goHome();
-
+document.getElementById("subscribeModal").addEventListener("click",event=>{
+  if(event.target===event.currentTarget)closeSubscribe();
 });
 
-</script>
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape")closeSubscribe();
+});
 
+renderSubjects();
+</script>
 </body>
 </html>
-```
